@@ -4,11 +4,18 @@ import { useState, useEffect } from "react";
 import LoadingAnimation from "./LoadingAnimation";
 import Link from "next/link";
 
+// Define the Project type
+interface Project {
+  title: string;
+  url: string;
+  category: string;
+}
+
 export default function FetchProjects() {
-  const [projects, setProjects] = useState([]);
-  const [displayedProjects, setDisplayedProjects] = useState([]);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [displayedProjects, setDisplayedProjects] = useState<Project[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [allProjects, setAllProjects] = useState([]);
+  const [allProjects, setAllProjects] = useState<Project[]>([]);
   const [projectIndex, setProjectIndex] = useState(0);
   const [loading, setLoading] = useState(true);
 
@@ -21,18 +28,17 @@ export default function FetchProjects() {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const result = await response.json();
-        
-        // Assuming your API response structure is like { "projects": [...] }
+        const result: Project[] = await response.json();
+
         if (result && result.length > 0) {
-          setAllProjects(result); // Assuming result is the array of projects
+          setAllProjects(result);
         } else {
           throw new Error('Empty or invalid response from API');
         }
       } catch (error) {
         console.error("Error fetching all projects:", error);
       } finally {
-        setLoading(false); // Ensure loading state is updated even on error
+        setLoading(false);
       }
     };
 
@@ -56,8 +62,8 @@ export default function FetchProjects() {
     }
   }, [projects, projectIndex]);
 
-  const handleCategoryChange = (event) => {
-    const newCategory = event.target.value || event.target.textContent;
+  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement> | React.MouseEvent<HTMLButtonElement>) => {
+    const newCategory = (event.target as HTMLSelectElement).value || (event.target as HTMLButtonElement).textContent;
     setSelectedCategory(newCategory);
   };
 
