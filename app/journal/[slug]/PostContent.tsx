@@ -1,22 +1,70 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import * as contentful from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
 import LoadingAnimation from "@/app/components/LoadingAnimation";
 
-const PostContent = ({ slug }) => {
-  const [post, setPost] = useState(null);
+interface PostContentProps {
+  slug: string;
+}
+
+interface Post {
+  fields: {
+    title: string;
+    published: string;
+    content: any;
+    featuredImage: {
+      fields: {
+        file: {
+          url: string;
+          details: {
+            image: {
+              width: number;
+              height: number;
+            };
+          };
+        };
+      };
+    };
+    related: RelatedPost[];
+  };
+}
+
+interface RelatedPost {
+  sys: {
+    id: string;
+  };
+  fields: {
+    slug: string;
+    title: string;
+    description: string;
+    featuredImage: {
+      fields: {
+        file: {
+          url: string;
+          details: {
+            image: {
+              width: number;
+              height: number;
+            };
+          };
+        };
+      };
+    };
+  };
+}
+
+const PostContent: React.FC<PostContentProps> = ({ slug }) => {
+  const [post, setPost] = useState<Post | null>(null);
   const [isFetching, setIsFetching] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const client = contentful.createClient({
-    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-    previewAccessToken: process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN,
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
   });
 
   useEffect(() => {
@@ -25,7 +73,7 @@ const PostContent = ({ slug }) => {
         return;
       }
       try {
-        const response = await client.getEntries({
+        const response = await client.getEntries<Post>({
           content_type: "journal",
           "fields.slug": slug,
         });
@@ -46,12 +94,9 @@ const PostContent = ({ slug }) => {
     fetchPost();
   }, [client, slug, isFetching]);
 
-  const formatDate = (dateString) => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    const formattedDate = new Date(dateString).toLocaleDateString(
-      "en-UK",
-      options
-    );
+  const formatDate = (dateString: string) => {
+    const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(dateString).toLocaleDateString("en-UK", options);
     return formattedDate;
   };
 
@@ -69,7 +114,7 @@ const PostContent = ({ slug }) => {
 
   const options = {
     renderNode: {
-      "embedded-asset-block": (node) => (
+      "embedded-asset-block": (node: any) => (
         <Image
           key={node.data.target.sys.id}
           src={`https:${node.data.target.fields.file.url}`}
@@ -78,21 +123,21 @@ const PostContent = ({ slug }) => {
           height={node.data.target.fields.file.details.image.height}
         />
       ),
-      "heading-4": (node) => (
+      "heading-4": (node: any) => (
         <h4 className="text-2xl md:text-4xl">
-          {node.content.map((item, index) => (
+          {node.content.map((item: any, index: any) => (
             <span key={index}>{documentToReactComponents(item, options)}</span>
           ))}
         </h4>
       ),
-      paragraph: (node) => (
+      paragraph: (node: any) => (
         <p className="leading-normal text-base lg:text-xl my-7">
-          {node.content.map((item, index) => (
+          {node.content.map((item: any, index: any) => (
             <span key={index}>{documentToReactComponents(item, options)}</span>
           ))}
         </p>
       ),
-      hyperlink: (node) => (
+      hyperlink: (node: any) => (
         <a
           href={node.data.uri}
           target="_blank"
@@ -108,12 +153,12 @@ const PostContent = ({ slug }) => {
   return (
     <article className="min-w-screen overflow-hidden bg-neutral-950">
       <div className="">
-       <div className="md:mx-28 mx-4 my-10">
-       <h1 className="text-5xl md:text-8xl font-bold text-gray-200">
-          {post.fields.title}
-        </h1>
-        <p className="my-4 text-gray-200">{formatDate(post.fields.published)}</p>
-       </div>
+        <div className="md:mx-28 mx-4 my-10">
+          <h1 className="text-5xl md:text-8xl font-bold text-gray-200">
+            {post.fields.title}
+          </h1>
+          <p className="my-4 text-gray-200">{formatDate(post.fields.published)}</p>
+        </div>
         <Image
           src={`https:${post.fields.featuredImage.fields.file.url}`}
           alt="Post Thumbnail"
@@ -122,19 +167,16 @@ const PostContent = ({ slug }) => {
         />
       </div>
       <div className="md:mx-28 mx-4 my-16">
-        
         <div className="my-16 text-gray-200">
           {documentToReactComponents(post.fields.content, options)}
         </div>
         <hr />
-
-        {/* Related Articles Section */}
         <div>
           <h3 className="text-4xl font-outfit mt-20 mb-12 text-gray-200">Continue reading</h3>
         </div>
         <div className="related-articles grid grid-cols-1 lg:grid-cols-2 gap-10 text-gray-200">
           {post.fields.related &&
-            post.fields.related.map((relatedPost) => (
+            post.fields.related.map((relatedPost: RelatedPost) => (
               <Link
                 key={relatedPost.sys.id}
                 href={`/journal/${relatedPost.fields.slug}`}
@@ -145,14 +187,8 @@ const PostContent = ({ slug }) => {
                     src={`https:${relatedPost.fields.featuredImage.fields.file.url}`}
                     alt={relatedPost.fields.title}
                     className="max-w-full h-auto hover:scale-95 transition-all duration-700 ease-in-out overflow-hidden"
-                    width={
-                      relatedPost.fields.featuredImage.fields.file.details.image
-                        .width
-                    }
-                    height={
-                      relatedPost.fields.featuredImage.fields.file.details.image
-                        .height
-                    }
+                    width={relatedPost.fields.featuredImage.fields.file.details.image.width}
+                    height={relatedPost.fields.featuredImage.fields.file.details.image.height}
                   />
                   <h4 className="text-3xl font-outfit my-4 hover:text-sienna">
                     {relatedPost.fields.title}
