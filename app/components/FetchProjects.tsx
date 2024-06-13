@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import LoadingAnimation from "./LoadingAnimation";
 import Link from "next/link";
 
-// Define the Project type
 interface Project {
   title: string;
   url: string;
@@ -14,10 +13,10 @@ interface Project {
 export default function FetchProjects() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [displayedProjects, setDisplayedProjects] = useState<Project[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [allProjects, setAllProjects] = useState<Project[]>([]);
-  const [projectIndex, setProjectIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [projectIndex, setProjectIndex] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const projectsPerPage = 5;
 
@@ -29,16 +28,17 @@ export default function FetchProjects() {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result: Project[] = await response.json();
-
+        
+        // Assuming your API response structure is like { "projects": [...] }
         if (result && result.length > 0) {
-          setAllProjects(result);
+          setAllProjects(result); // Assuming result is the array of projects
         } else {
           throw new Error('Empty or invalid response from API');
         }
       } catch (error) {
         console.error("Error fetching all projects:", error);
       } finally {
-        setLoading(false);
+        setLoading(false); // Ensure loading state is updated even on error
       }
     };
 
@@ -64,7 +64,9 @@ export default function FetchProjects() {
 
   const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement> | React.MouseEvent<HTMLButtonElement>) => {
     const newCategory = (event.target as HTMLSelectElement).value || (event.target as HTMLButtonElement).textContent;
-    setSelectedCategory(newCategory);
+    if (newCategory) {
+      setSelectedCategory(newCategory);
+    }
   };
 
   const loadMoreProjects = () => {
