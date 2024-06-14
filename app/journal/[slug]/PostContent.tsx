@@ -1,70 +1,55 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
-import * as contentful from "contentful";
+import { createClient, Entry } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
 import LoadingAnimation from "@/app/components/LoadingAnimation";
 
-interface PostContentProps {
+interface ImageFileDetails {
+  image: {
+    width: number;
+    height: number;
+  };
+}
+
+interface ImageFile {
+  url: string;
+  details: ImageFileDetails;
+}
+
+interface ImageFields {
+  file: ImageFile;
+  description: string;
+}
+
+interface RelatedPostFields {
   slug: string;
+  title: string;
+  featuredImage?: Entry<ImageFields>;
 }
 
-interface Post {
-  fields: {
-    title: string;
-    published: string;
-    content: any;
-    featuredImage: {
-      fields: {
-        file: {
-          url: string;
-          details: {
-            image: {
-              width: number;
-              height: number;
-            };
-          };
-        };
-      };
-    };
-    related: RelatedPost[];
-  };
+interface PostFields {
+  title: string;
+  slug: string;
+  content: any; // Adjust this according to your actual content type
+  featuredImage?: Entry<ImageFields>;
+  published: string;
+  related?: Entry<RelatedPostFields>[];
 }
 
-interface RelatedPost {
-  sys: {
-    id: string;
-  };
-  fields: {
-    slug: string;
-    title: string;
-    description: string;
-    featuredImage: {
-      fields: {
-        file: {
-          url: string;
-          details: {
-            image: {
-              width: number;
-              height: number;
-            };
-          };
-        };
-      };
-    };
-  };
-}
+type Post = Entry<PostFields>;
 
-const PostContent: React.FC<PostContentProps> = ({ slug }) => {
+const PostContent = ({ slug }: { slug: string }) => {
   const [post, setPost] = useState<Post | null>(null);
   const [isFetching, setIsFetching] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const client = contentful.createClient({
-    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
-    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
+  const client = createClient({
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID as string,
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN as string,
   });
 
   useEffect(() => {
@@ -73,7 +58,7 @@ const PostContent: React.FC<PostContentProps> = ({ slug }) => {
         return;
       }
       try {
-        const response = await client.getEntries<Post>({
+        const response = await client.getEntries<PostFields>({
           content_type: "journal",
           "fields.slug": slug,
         });
@@ -96,8 +81,7 @@ const PostContent: React.FC<PostContentProps> = ({ slug }) => {
 
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
-    const formattedDate = new Date(dateString).toLocaleDateString("en-UK", options);
-    return formattedDate;
+    return new Date(dateString).toLocaleDateString("en-UK", options);
   };
 
   if (isFetching) {
@@ -138,12 +122,7 @@ const PostContent: React.FC<PostContentProps> = ({ slug }) => {
         </p>
       ),
       hyperlink: (node: any) => (
-        <a
-          href={node.data.uri}
-          target="_blank"
-          rel="noopener noreferrer"
-          id="animate"
-        >
+        <a href={node.data.uri} target="_blank" rel="noopener noreferrer" id="animate">
           {node.content[0].value}
         </a>
       ),
@@ -154,35 +133,29 @@ const PostContent: React.FC<PostContentProps> = ({ slug }) => {
     <article className="min-w-screen overflow-hidden bg-neutral-950">
       <div className="">
         <div className="md:mx-28 mx-4 my-10">
-          <h1 className="text-5xl md:text-8xl font-bold text-gray-200">
-            {post.fields.title}
-          </h1>
+          <h1 className="text-5xl md:text-8xl font-bold text-gray-200">{post.fields.title}</h1>
           <p className="my-4 text-gray-200">{formatDate(post.fields.published)}</p>
         </div>
-        <Image
-          src={`https:${post.fields.featuredImage.fields.file.url}`}
-          alt="Post Thumbnail"
-          width={post.fields.featuredImage.fields.file.details.image.width}
-          height={post.fields.featuredImage.fields.file.details.image.height}
-        />
+        {post.fields.featuredImage && (
+          <Image
+            src={`https:${post.fields.featuredImage.fields.file.url}`}
+            alt="Post Thumbnail"
+            width={post.fields.featuredImage.fields.file.details.image.width}
+            height={post.fields.featuredImage.fields.file.details.image.height}
+          />
+        )}
       </div>
       <div className="md:mx-28 mx-4 my-16">
-        <div className="my-16 text-gray-200">
-          {documentToReactComponents(post.fields.content, options)}
-        </div>
+        <div className="my-16 text-gray-200">{documentToReactComponents(post.fields.content, options)}</div>
         <hr />
         <div>
           <h3 className="text-4xl font-outfit mt-20 mb-12 text-gray-200">Continue reading</h3>
         </div>
         <div className="related-articles grid grid-cols-1 lg:grid-cols-2 gap-10 text-gray-200">
-          {post.fields.related &&
-            post.fields.related.map((relatedPost: RelatedPost) => (
-              <Link
-                key={relatedPost.sys.id}
-                href={`/journal/${relatedPost.fields.slug}`}
-                passHref
-              >
-                <div className="related-article-card">
+          {post.fields.related?.map((relatedPost) => (
+            <Link key={relatedPost.sys.id} href={`/journal/${relatedPost.fields.slug}`} passHref>
+              <div className="related-article-card">
+                {relatedPost.fields.featuredImage && (
                   <Image
                     src={`https:${relatedPost.fields.featuredImage.fields.file.url}`}
                     alt={relatedPost.fields.title}
@@ -190,15 +163,12 @@ const PostContent: React.FC<PostContentProps> = ({ slug }) => {
                     width={relatedPost.fields.featuredImage.fields.file.details.image.width}
                     height={relatedPost.fields.featuredImage.fields.file.details.image.height}
                   />
-                  <h4 className="text-3xl font-outfit my-4 hover:text-sienna">
-                    {relatedPost.fields.title}
-                  </h4>
-                  <p className="mt-1 font-zilla md:text-2xl font-light">
-                    {relatedPost.fields.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
+                )}
+                <h4 className="text-3xl font-outfit my-4 hover:text-sienna">{relatedPost.fields.title}</h4>
+                <p className="mt-1 font-zilla md:text-2xl font-light">{relatedPost.fields.description}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </article>

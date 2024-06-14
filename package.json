@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.21.2",
+    "@contentful/rich-text-types": "^16.5.2",
     "@emailjs/browser": "^4.3.3",
     "@next/third-parties": "^14.2.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "contentful": "^10.11.10",
+    "date-fns": "^3.6.0",
     "emailjs": "^4.0.3",
     "framer-motion": "^11.2.10",
     "fs": "^0.0.1-security",
