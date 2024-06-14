@@ -1,7 +1,4 @@
-"use client";
-
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { createClient, Entry } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -23,12 +20,14 @@ interface ImageFile {
 interface ImageFields {
   file: ImageFile;
   description: string;
+  fields: any; // Add fields property
 }
 
 interface RelatedPostFields {
   slug: string;
   title: string;
   featuredImage?: Entry<ImageFields>;
+  fields: any; // Add fields property
 }
 
 interface PostFields {
@@ -38,6 +37,7 @@ interface PostFields {
   featuredImage?: Entry<ImageFields>;
   published: string;
   related?: Entry<RelatedPostFields>[];
+  fields: any; // Add fields property
 }
 
 type Post = Entry<PostFields>;

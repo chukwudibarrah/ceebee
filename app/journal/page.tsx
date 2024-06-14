@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import * as contentful from "contentful";
@@ -46,7 +44,7 @@ export default function Journal() {
     };
 
     fetchPosts();
-  }, []);
+  }, [client]);
 
   return (
     <div className="flex min-h-screen w-screen overscroll-none bg-neutral-950 justify-center">
