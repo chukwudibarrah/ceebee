@@ -3,34 +3,34 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { createClient, Entry, EntryFields } from "contentful";
+import { createClient, Entry, EntrySkeletonType } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
 import LoadingAnimation from "@/app/components/LoadingAnimation";
 
-interface ImageFileDetails {
-  image: {
-    width: number;
-    height: number;
-  };
-}
-
-interface ImageFile {
-  url: string;
-  details: ImageFileDetails;
-}
-
+// Define the structure for ImageFields
 interface ImageFields {
-  file: ImageFile;
+  file: {
+    url: string;
+    details: {
+      image: {
+        width: number;
+        height: number;
+      };
+    };
+  };
   description: string;
+  contentTypeId: string; // Add contentTypeId to satisfy EntrySkeletonType constraint
 }
 
+// Define the structure for RelatedPostFields
 interface RelatedPostFields {
   slug: string;
   title: string;
   featuredImage?: Entry<ImageFields>;
 }
 
+// Define the structure for PostFields
 interface PostFields {
   title: string;
   slug: string;
@@ -40,6 +40,7 @@ interface PostFields {
   related?: Entry<RelatedPostFields>[];
 }
 
+// Define the Post type
 type Post = Entry<PostFields>;
 
 const PostContent = ({ slug }: { slug: string }) => {
