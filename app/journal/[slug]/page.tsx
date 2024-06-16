@@ -1,3 +1,5 @@
+"use client"
+
 import PostContent from './PostContent';
 
 const PostPage = ({ params }) => {

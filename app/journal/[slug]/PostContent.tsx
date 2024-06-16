@@ -1,89 +1,50 @@
-"use client";
+"use client"
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import { createClient, Entry, EntrySkeletonType } from "contentful";
+import { useRouter, usePathname } from "next/navigation";
+import { getArticle } from "@/lib/api";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
+import { zilla } from "@/styles/fonts";
 import LoadingAnimation from "@/app/components/LoadingAnimation";
-
-// Define the structure for ImageFields
-interface ImageFields {
-  file: {
-    url: string;
-    details: {
-      image: {
-        width: number;
-        height: number;
-      };
-    };
-  };
-  description: string;
-  contentTypeId: string; // Add contentTypeId to satisfy EntrySkeletonType constraint
-}
-
-// Define the structure for RelatedPostFields
-interface RelatedPostFields {
-  slug: string;
-  title: string;
-  featuredImage?: Entry<ImageFields>;
-}
-
-// Define the structure for PostFields
-interface PostFields {
-  title: string;
-  slug: string;
-  content: any; // Adjust this according to your actual content type
-  featuredImage?: Entry<ImageFields>;
-  published: string;
-  related?: Entry<RelatedPostFields>[];
-}
-
-// Define the Post type
-type Post = Entry<PostFields>;
+import { ArticleEntry } from "@/lib/contentfulTypes";
 
 const PostContent = ({ slug }: { slug: string }) => {
-  const [post, setPost] = useState<Post | null>(null);
+  const [article, setArticle] = useState<ArticleEntry | null>(null);
   const [isFetching, setIsFetching] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  const client = createClient({
-    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID as string,
-    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN as string,
-  });
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
-    const fetchPost = async () => {
-      if (!slug || !isFetching) {
-        return;
-      }
+    const fetchArticle = async () => {
       try {
-        const response = await client.getEntries<PostFields>({
-          content_type: "journal",
-          "fields.slug": slug,
-        });
-
-        if (response.items.length > 0) {
-          setPost(response.items[0]);
-          setError(null);
+        const fetchedArticle = await getArticle(slug);
+        if (fetchedArticle) {
+          setArticle(fetchedArticle);
         } else {
-          setError("Post not found");
+          setError("Article not found");
         }
       } catch (error) {
-        setError("Error fetching Contentful entry");
+        setError("Error fetching article");
       } finally {
         setIsFetching(false);
       }
     };
 
-    fetchPost();
-  }, [client, slug, isFetching]);
+    if (slug) {
+      fetchArticle();
+    }
+  }, [slug]);
 
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString("en-UK", options);
   };
+
+  if (!pathname) {
+    return null;
+  }
 
   if (isFetching) {
     return <LoadingAnimation />;
@@ -93,11 +54,11 @@ const PostContent = ({ slug }: { slug: string }) => {
     return <div>Error: {error}</div>;
   }
 
-  if (!post) {
-    return <div>No post found.</div>;
+  if (!article) {
+    return <div>No article found.</div>;
   }
 
-  const options = {
+  const renderOptions = {
     renderNode: {
       "embedded-asset-block": (node: any) => (
         <Image
@@ -108,68 +69,102 @@ const PostContent = ({ slug }: { slug: string }) => {
           height={node.data.target.fields.file.details.image.height}
         />
       ),
-      "heading-4": (node: any) => (
+      "heading-4": (node) => (
         <h4 className="text-2xl md:text-4xl">
-          {node.content.map((item: any, index: any) => (
-            <span key={index}>{documentToReactComponents(item, options)}</span>
+          {node.content.map((item, index) => (
+            <span key={index}>{documentToReactComponents(item, renderOptions)}</span>
           ))}
         </h4>
       ),
-      paragraph: (node: any) => (
-        <p className="leading-normal text-base lg:text-xl my-7">
-          {node.content.map((item: any, index: any) => (
-            <span key={index}>{documentToReactComponents(item, options)}</span>
+      paragraph: (node) => (
+        <p className="leading-normal lg:text-xl my-7">
+          {node.content.map((item, index) => (
+            <span key={index}>{documentToReactComponents(item, renderOptions)}</span>
           ))}
         </p>
       ),
-      hyperlink: (node: any) => (
-        <a href={node.data.uri} target="_blank" rel="noopener noreferrer" id="animate">
+      "ordered-list": (node) => (
+        <p className="leading-normal lg:text-xl my-7 list-decimal list-inside">
+          {node.content.map((item, index) => (
+            <span key={index}>{documentToReactComponents(item, renderOptions)}</span>
+          ))}
+        </p>
+      ),
+      "unordered-list": (node) => (
+        <p className="leading-normal lg:text-xl my-7 list-disc list-outside">
+          {node.content.map((item, index) => (
+            <span key={index}>{documentToReactComponents(item, renderOptions)}</span>
+          ))}
+        </p>
+      ),
+      hyperlink: (node) => (
+        <a
+          href={node.data.uri}
+          target="_blank"
+          rel="noopener noreferrer"
+          id="animate"
+          // className="underline text-blue-500 hover:text-blue-700"
+        >
           {node.content[0].value}
         </a>
       ),
     },
+    renderMark: {
+      "code": (text: any) => {
+        return (
+          <code className={`bg-neutral-900 p-1 rounded-sm py-2 px-5 ${zilla.className}`}>
+            {text}
+          </code>
+        );
+      },
+    },
+  };
+
+  // Type assertion to ensure article.fields is treated as non-null
+  const articleFields = article.fields as {
+    title: string;
+    slug: string;
+    related: any; // Adjust to the correct type if possible
+    content: any; // Adjust to the correct type if possible
+    published: string;
+    featuredImage?: {
+      fields: {
+        file: {
+          url: string;
+          details: {
+            image: {
+              width: number;
+              height: number;
+            };
+          };
+        };
+      };
+    };
   };
 
   return (
     <article className="min-w-screen overflow-hidden bg-neutral-950">
-      <div className="">
-        <div className="md:mx-28 mx-4 my-10">
-          <h1 className="text-5xl md:text-8xl font-bold text-gray-200">{post.fields.title}</h1>
-          <p className="my-4 text-gray-200">{formatDate(post.fields.published)}</p>
-        </div>
-        {post.fields.featuredImage && (
-          <Image
-            src={`https:${post.fields.featuredImage.fields.file.url}`}
-            alt="Post Thumbnail"
-            width={post.fields.featuredImage.fields.file.details.image.width}
-            height={post.fields.featuredImage.fields.file.details.image.height}
-          />
-        )}
+      <div className="md:mx-28 mx-4 my-10">
+        <h1 className="text-5xl md:text-8xl font-bold text-gray-200">{articleFields.title}</h1>
+        <p className="my-4 text-gray-200">{formatDate(articleFields.published)}</p>
       </div>
+      {articleFields.featuredImage && (
+        <div className="md:mx-28 mx-4 my-10">
+          <Image
+            src={`https:${articleFields.featuredImage.fields.file.url}`}
+            alt="Article Thumbnail"
+            width={articleFields.featuredImage.fields.file.details.image.width}
+            height={articleFields.featuredImage.fields.file.details.image.height}
+          />
+        </div>
+      )}
       <div className="md:mx-28 mx-4 my-16">
-        <div className="my-16 text-gray-200">{documentToReactComponents(post.fields.content, options)}</div>
+        <div className="my-16 text-gray-200">{documentToReactComponents(articleFields.content, renderOptions)}</div>
         <hr />
         <div>
           <h3 className="text-4xl font-outfit mt-20 mb-12 text-gray-200">Continue reading</h3>
         </div>
-        <div className="related-articles grid grid-cols-1 lg:grid-cols-2 gap-10 text-gray-200">
-          {post.fields.related?.map((relatedPost) => (
-            <Link key={relatedPost.sys.id} href={`/journal/${relatedPost.fields.slug}`} passHref>
-              <div className="related-article-card">
-                {relatedPost.fields.featuredImage && (
-                  <Image
-                    src={`https:${relatedPost.fields.featuredImage.fields.file.url}`}
-                    alt={relatedPost.fields.title}
-                    className="max-w-full h-auto hover:scale-95 transition-all duration-700 ease-in-out overflow-hidden"
-                    width={relatedPost.fields.featuredImage.fields.file.details.image.width}
-                    height={relatedPost.fields.featuredImage.fields.file.details.image.height}
-                  />
-                )}
-                <h4 className="text-3xl font-outfit my-4 hover:text-sienna">{relatedPost.fields.title}</h4>
-                <p className="mt-1 font-zilla md:text-2xl font-light">{relatedPost.fields.description}</p>
-              </div>
-            </Link>
-          ))}
+        <div>
         </div>
       </div>
     </article>
