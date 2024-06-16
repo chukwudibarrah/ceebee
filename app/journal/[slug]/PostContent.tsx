@@ -79,21 +79,21 @@ const PostContent = ({ slug }: { slug: string }) => {
         </h4>
       ),
       paragraph: (node) => (
-        <p className="leading-normal lg:text-xl my-7">
+        <p className="leading-loose md:text-xl lg:text-2xl my-7">
           {node.content.map((item, index) => (
             <span key={index}>{documentToReactComponents(item, renderOptions)}</span>
           ))}
         </p>
       ),
       "ordered-list": (node) => (
-        <p className="leading-normal lg:text-xl my-7 list-decimal list-inside">
+        <p className="leading-loose md:text-xl lg:text-2xl my-7 list-decimal list-inside">
           {node.content.map((item, index) => (
             <span key={index}>{documentToReactComponents(item, renderOptions)}</span>
           ))}
         </p>
       ),
       "unordered-list": (node) => (
-        <p className="leading-normal lg:text-xl my-7 list-disc list-outside">
+        <p className="leading-loose md:text-xl lg:text-2xl my-7 list-disc list-outside">
           {node.content.map((item, index) => (
             <span key={index}>{documentToReactComponents(item, renderOptions)}</span>
           ))}
@@ -146,12 +146,12 @@ const PostContent = ({ slug }: { slug: string }) => {
 
   return (
     <article className="min-w-screen overflow-hidden bg-neutral-950">
-      <div className="md:px-28 px-4 my-10">
+      <div className="lg:px-28 md:px-16 px-4 my-10">
         <h1 className="text-5xl md:text-8xl font-bold text-gray-200">{articleFields.title}</h1>
         <p className="my-4 text-gray-200">{formatDate(articleFields.published)}</p>
       </div>
       {articleFields.featuredImage && (
-        <div className="md:px-28 px-4 my-10 w-full">
+        <div className="lg:px-28 md:px-16 px-4 my-10 w-full">
           <Image
             src={`https:${articleFields.featuredImage.fields.file.url}`}
             alt="Article Thumbnail"
@@ -160,7 +160,7 @@ const PostContent = ({ slug }: { slug: string }) => {
           />
         </div>
       )}
-      <div className="md:px-28 px-4 my-16">
+      <div className="lg:px-28 md:px-16 px-4 my-16">
         <div className="my-16 text-gray-200">{documentToReactComponents(articleFields.content, renderOptions)}</div>
         <hr />
         <div>

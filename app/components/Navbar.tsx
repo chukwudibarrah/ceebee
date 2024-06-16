@@ -24,7 +24,7 @@ export default function Navbar() {
         onOpenChange={(open) => setIsOpen(open)}
       >
         <DrawerTrigger className="w-screen">
-          <div className="min-w-full flex border-none border-neutral-950 justify-between md:px-28 px-4">
+          <div className="min-w-full flex border-none border-neutral-950 justify-between lg:px-28 md:px-16 px-4">
             <div>
               <Link href="/">
                 <Image
