@@ -27,13 +27,6 @@ export interface ArticleFields {
   featuredImage?: AssetWithFields<ImageFields>;
 }
 
-// export interface RelatedArticleFields {
-//   title: string;
-//   slug: string;
-//   description: string;
-//   published: string;
-//   featuredImage?: AssetWithFields<ImageFields>;
-// }
 
 // Define the structure for the Article skeleton
 export interface ArticleSkeleton extends EntrySkeletonType {
