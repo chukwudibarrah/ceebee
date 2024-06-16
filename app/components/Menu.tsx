@@ -12,7 +12,7 @@ export default function Menu() {
       <div className="min-h-full w-full grid grid-cols-1 content-center text-left space-y-20 z-30 text-sienna font-bold text-6xl md:text-8xl pt-32 md:px-32 px-11">
         <Link
           className={`link ${
-            pathname === "/about" ? "active" : "text-persian"
+            pathname === "/about" ? "active" : ""
           }`}
           href="/about"
         >
@@ -22,7 +22,7 @@ export default function Menu() {
         </Link>
         <Link
           className={`link ${
-            pathname === "/projects" ? "active" : "text-persian"
+            pathname === "/projects" ? "active" : ""
           }`}
           href="/projects"
         >
@@ -34,7 +34,7 @@ export default function Menu() {
         </Link>
         <Link
           className={`link ${
-            pathname === "/journal" ? "active" : "text-persian"
+            pathname === "/journal" ? "active" : ""
           }`}
           href="/journal"
         >
