@@ -16,6 +16,8 @@ const PostContent = ({ slug }: { slug: string }) => {
   const router = useRouter();
   const pathname = usePathname();
 
+  const full = "100%"
+
   useEffect(() => {
     const fetchArticle = async () => {
       try {
@@ -144,12 +146,12 @@ const PostContent = ({ slug }: { slug: string }) => {
 
   return (
     <article className="min-w-screen overflow-hidden bg-neutral-950">
-      <div className="md:mx-28 mx-4 my-10">
+      <div className="md:px-28 px-4 my-10">
         <h1 className="text-5xl md:text-8xl font-bold text-gray-200">{articleFields.title}</h1>
         <p className="my-4 text-gray-200">{formatDate(articleFields.published)}</p>
       </div>
       {articleFields.featuredImage && (
-        <div className="md:mx-28 mx-4 my-10">
+        <div className="md:px-28 px-4 my-10 w-full">
           <Image
             src={`https:${articleFields.featuredImage.fields.file.url}`}
             alt="Article Thumbnail"
@@ -158,7 +160,7 @@ const PostContent = ({ slug }: { slug: string }) => {
           />
         </div>
       )}
-      <div className="md:mx-28 mx-4 my-16">
+      <div className="md:px-28 px-4 my-16">
         <div className="my-16 text-gray-200">{documentToReactComponents(articleFields.content, renderOptions)}</div>
         <hr />
         <div>

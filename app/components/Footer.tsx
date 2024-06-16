@@ -29,7 +29,7 @@ export default function Footer() {
           animate={{ y: 0 }}
           initial={{ y: "100%" }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="text-gray-300 md:text-2xl text-xl md:px-32 px-11 font-thin leading-loose"
+          className="text-gray-300 md:text-2xl text-xl md:px-28 px-4 font-thin leading-loose"
         >
           Ready to start creating an outstanding web presence?
           <br />
@@ -54,7 +54,7 @@ export default function Footer() {
         animate={{ x: 0 }}
         initial={{ x: "100%" }}
         transition={{ delay: 0.75, duration: 0.75 }}
-        className="text-gray-300 flex flex-col md:flex-row my-20 md:px-32 px-11"
+        className="text-gray-300 flex flex-col md:flex-row my-20 md:px-28 px-4"
       >
         <div className="lg:mr-56 md:mb-24 mb-14 tracking-wide">
           <h3 className="flex items-center uppercase text-xl">
@@ -86,7 +86,7 @@ export default function Footer() {
         </div>
       </motion.div>
 
-      <div className="flex flex-col md:px-32 px-11 md:flex-row opacity-100 text-gray-300 font-thin tracking-wider z-20">
+      <div className="flex flex-col md:px-28 px-4 md:flex-row opacity-100 text-gray-300 font-thin tracking-wider z-20">
         <div className="text-gray-300">
           <Link
             href="https://github.com/chukwudibarrah/portfolio"

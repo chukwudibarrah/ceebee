@@ -24,7 +24,7 @@ export default function Navbar() {
         onOpenChange={(open) => setIsOpen(open)}
       >
         <DrawerTrigger className="w-screen">
-          <div className="min-w-full flex border-none justify-between md:px-32 px-11">
+          <div className="min-w-full flex border-none border-neutral-950 justify-between md:px-28 px-4">
             <div>
               <Link href="/">
                 <Image
@@ -47,7 +47,7 @@ export default function Navbar() {
           </div>
           <DrawerContent>
             <Menu />
-            <div className="flex mt-28 md:mt-56 lg:mt-40 md:px-32 px-11">
+            <div className="flex mt-28 md:mt-56 lg:mt-40 md:px-32 px-4">
               <DrawerFooter />
             </div>
           </DrawerContent>
