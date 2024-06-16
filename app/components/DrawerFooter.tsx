@@ -7,7 +7,7 @@ import { FaInstagram } from "react-icons/fa";
 export default function DrawerFooter() {
   return (
     <main>
-      <div className="flex space-x-24 text-white text-4xl">
+      <div className="flex space-x-24 text-gray-200 text-2xl md:text-4xl">
         <div>
           <Link
             href="https://www.linkedin.com/in/cbarrah"
