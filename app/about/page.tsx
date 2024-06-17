@@ -14,7 +14,7 @@ export default function About() {
         <br />
         me
       </h1>
-      <div className={`overflow-hidden my-20 space-y-8`}>
+      <div className={`overflow-hidden my-20 space-y-8 z-20`}>
         <motion.h2
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
@@ -75,6 +75,7 @@ export default function About() {
           like{" "}
           <Link
             href="https://www.blackgourd.com"
+            aria-label="Visit the Black Gourd Creative Collective website"
             target="_blank"
             rel="noopener"
             className="group text-gray-300 transition-all duration-300 ease-in-out"
@@ -88,6 +89,7 @@ export default function About() {
             <span className="">
               <Link
                 href="https://blackside.uk"
+                aria-label="Visit the black side website"
                 target="_blank"
                 rel="noopener"
                 className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna"
@@ -99,6 +101,7 @@ export default function About() {
           (and on{" "}
           <Link
             href="https://www.otherexpats.com"
+            aria-label="Visit the Other Expats website"
             target="_blank"
             rel="noopener"
             className="group text-gray-300 transition-all duration-300 ease-in-out"
@@ -110,6 +113,7 @@ export default function About() {
           ). You can find some of my editorial and copywriting work in the{" "}
           <Link
             href="/journal"
+            aria-label="Navigate to the journal page"
             className="group text-gray-300 transition-all duration-300 ease-in-out"
           >
             <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
@@ -119,11 +123,12 @@ export default function About() {
           and in my selection of previous{" "}
           <Link
             href="/projects"
+            aria-label="Navigate to the projects page"
             className="group text-gray-300 transition-all duration-300 ease-in-out"
           >
             <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
               projects
-            </span>
+            </span>{" "}
           </Link>
           .
         </motion.p>
@@ -164,6 +169,9 @@ export default function About() {
             <span className="">
               <Link
                 href="mailto:ndeewo@chukwudibarrah.com"
+                aria-label="Send an email to ndeewo@chukwudibarrah.com"
+                target="_blank"
+                rel="noopener"
                 className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna"
               >
                 ndeewo@chukwudibarrah.com

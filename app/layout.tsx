@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react"
 import { sendGAEvent } from "@next/third-parties/google";
 import { Toaster } from "@/components/ui/toaster"
 import { worksans } from "@/styles/fonts";
@@ -32,6 +33,7 @@ export default function RootLayout({
         <GoogleAnalyticsTracking />
         <Navbar />
         {children}
+        <Analytics/>
         <Toaster />
         <Footer />
       </body>

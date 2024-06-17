@@ -15,6 +15,7 @@ export default function Menu() {
             pathname === "/about" ? "active" : ""
           }`}
           href="/about"
+          aria-label="Go to the about page"
         >
           <DrawerClose asChild>
             <button className="text-gray-200 hover:text-sienna">About</button>
@@ -25,6 +26,7 @@ export default function Menu() {
             pathname === "/projects" ? "active" : ""
           }`}
           href="/projects"
+          aria-label="Go to the projects page"
         >
           <DrawerClose asChild>
             <button className="text-gray-200 hover:text-sienna">
@@ -37,6 +39,7 @@ export default function Menu() {
             pathname === "/journal" ? "active" : ""
           }`}
           href="/journal"
+          aria-label="Go to the journal page"
         >
           <DrawerClose asChild>
             <button className="text-gray-200 hover:text-sienna">Journal</button>

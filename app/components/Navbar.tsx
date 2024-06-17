@@ -26,7 +26,7 @@ export default function Navbar() {
         <DrawerTrigger className="w-screen">
           <div className="min-w-full flex border-none border-neutral-950 justify-between lg:px-28 md:px-16 px-4">
             <div>
-              <Link href="/">
+              <Link href="/" aria-label="Navigate to the home page">
                 <Image
                   src="/logo.png"
                   alt="logo"
@@ -41,7 +41,7 @@ export default function Navbar() {
             </div>
             <div>
               <DrawerTrigger>
-                {isOpen ? <CgClose className="text-white text-4xl hover:text-sienna" /> : <CgMenuRight className="text-white text-4xl hover:text-sienna" />}
+                {isOpen ? <CgClose className="text-white text-4xl hover:text-sienna" /> : <CgMenuRight className="text-white text-4xl hover:text-sienna"  aria-label="Open menu drawer" />}
               </DrawerTrigger>
             </div>
           </div>

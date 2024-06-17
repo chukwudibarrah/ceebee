@@ -85,7 +85,12 @@ export default function FetchProjects() {
         <p className={`text-lg`}>Filter projects</p>
         <div className={`hidden max-w-full pt-10 pb-24 md:flex space-x-2 md:space-x-7 lg:space-x-12`}>
           {["All", "Editing and copywriting", "Podcasting", "Web development", "Web editing"].map((category) => (
-            <button key={category} onClick={handleCategoryChange} className={`px-3 py-2 rounded-md ${selectedCategory === category ? "text-sienna tracking-widest" : "text-gray-200"}`}>
+            <button 
+            key={category} 
+            type="button"
+            aria-label="Filter projects by category" 
+            onClick={handleCategoryChange} 
+            className={`px-3 py-2 rounded-md ${selectedCategory === category ? "text-sienna tracking-widest" : "text-gray-200"}`}>
               {category}
             </button>
           ))}
@@ -119,7 +124,11 @@ export default function FetchProjects() {
       ))}
       {projects.length > 0 && projectIndex + projectsPerPage < projects.length && (
         <div className="flex my-32 group">
-          <button onClick={loadMoreProjects} className="text-xl md:text-2xl text-gray-200 bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_8px] bg-no-repeat group-hover:bg-[length:0%_8px] transition-all duration-700 ease-out hover:text-sienna">
+          <button 
+          type="button" 
+          aria-label="Load more projects"
+          onClick={loadMoreProjects} 
+          className="text-xl md:text-2xl text-gray-200 bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_8px] bg-no-repeat group-hover:bg-[length:0%_8px] transition-all duration-700 ease-out hover:text-sienna">
             Load more...
           </button>
         </div>

@@ -129,7 +129,11 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
               </button>
             </div>
           </form>
-          <button className="text-gray-300 hover:text-sienna pt-16 pb-24" onClick={onClose}>
+          <button 
+          className="text-gray-300 hover:text-sienna pt-16 pb-24" 
+          onClick={onClose}
+          aria-label="Send message"
+          >
             <svg
               className="w-12 h-12"
               fill="none"

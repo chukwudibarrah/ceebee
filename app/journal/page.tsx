@@ -97,6 +97,7 @@ export default function Journal() {
                           <li className="pb-4 group" key={post.sys.id}>
                             <Link
                               href={`/journal/${post.fields.slug}`}
+                              aria-label="Open journal post"
                               className={`bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna md:text-2xl font-thin`}
                             >
                               {post.fields.title}

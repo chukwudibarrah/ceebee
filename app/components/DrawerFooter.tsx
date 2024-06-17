@@ -11,6 +11,7 @@ export default function DrawerFooter() {
         <div>
           <Link
             href="https://www.linkedin.com/in/cbarrah"
+            aria-label="Visit my LinkedIn profile"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -22,6 +23,7 @@ export default function DrawerFooter() {
         <div>
           <Link
             href="https://github.com/chukwudibarrah"
+            aria-label="Visit my GitHub profile"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -33,6 +35,7 @@ export default function DrawerFooter() {
         <div>
           <Link
             href="https://www.instagram.com/dude.with.a.camera/"
+            aria-label="Visit my Instagram profile"
             target="_blank"
             rel="noopener noreferrer"
           >

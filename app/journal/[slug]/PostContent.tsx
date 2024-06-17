@@ -223,7 +223,10 @@ const PostContent = ({ slug }: { slug: string }) => {
             };
             return (
               <div key={relatedArticle.sys.id} className="">
-                <Link href={`/journal/${relatedFields.slug}`}>
+                <Link 
+                href={`/journal/${relatedFields.slug}`}
+                aria-label="Open related article"
+                >
                   {relatedFields.featuredImage && (
                     <div className="w-full">
                       <Image
