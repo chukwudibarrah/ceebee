@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { sendGAEvent } from "@next/third-parties/google";
+import { Toaster } from "@/components/ui/toaster"
 import { worksans } from "@/styles/fonts";
 import "./globals.css";
 import Footer from "./components/Footer";
@@ -31,6 +32,7 @@ export default function RootLayout({
         <GoogleAnalyticsTracking />
         <Navbar />
         {children}
+        <Toaster />
         <Footer />
       </body>
     </html>

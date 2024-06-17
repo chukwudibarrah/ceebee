@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, FormEvent } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import emailjs from "@emailjs/browser";
 
 interface ModalProps {
@@ -11,20 +12,10 @@ interface ModalProps {
 export default function Modal({ isOpen, onClose }: ModalProps) {
   const [buttonLoading, setButtonLoading] = useState(false);
   const form = useRef<HTMLFormElement>(null);
+  const { toast } = useToast();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setButtonLoading(true);
-
-    const serviceId = process.env.EMAILJS_SERVICE_ID;
-    const templateId = process.env.EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
-      console.error("Missing email service configuration");
-      setButtonLoading(false);
-      return;
-    }
 
     if (!form.current) {
       console.error("Form reference is not defined");
@@ -32,11 +23,48 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
       return;
     }
 
+    // Validate form fields
+    const formData = new FormData(form.current);
+    const name = formData.get("from_name") as string;
+    const email = formData.get("email") as string;
+    const subject = formData.get("subject") as string;
+    const message = formData.get("message") as string;
+
+    if (!name || !email || !subject || !message) {
+      toast({
+        variant: "destructive",
+        title: "Validation Error",
+        description: "All fields are required.",
+      });
+      setButtonLoading(false);
+      return;
+    }
+
+    setButtonLoading(true);
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("Missing email service configuration");
+      setButtonLoading(false);
+      return;
+    }
+
     try {
       await emailjs.sendForm(serviceId, templateId, form.current, publicKey);
+      toast({
+        description: "Your message has been sent.",
+      });
       setButtonLoading(false);
       form.current.reset();
     } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem with sending your message.",
+      });
       console.error("Error sending email:", error);
       setButtonLoading(false);
       form.current.reset();
@@ -44,11 +72,15 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
   };
 
   return (
-    <div className={`fixed z-50 inset-0 overflow-y-auto transition-opacity duration-500 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"} bg-black bg-opacity-50`}>
-      <div className="flex items-center justify-center min-h-screen pt-4 text-center">
-        <div className="relative bg-white w-full max-w-lg mx-auto p-8 rounded-lg shadow-lg">
-          <h2 className={`text-5xl md:text-6xl text-gray-300 font-extrabold uppercase mb-4`}>Get in touch</h2>
-          <form ref={form} onSubmit={handleSubmit}>
+    <div
+      className={`fixed z-50 inset-0 overflow-y-auto transition-opacity duration-500 ${
+        isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+      } bg-neutral-950 w-screen overscroll-none`}
+    >
+      <div className="flex items-center justify-center min-h-screen pt-4 text-center w-screen">
+        <div className="relative bg-neutral-950 h-screen min-w-full max-w-lg mx-auto p-8 rounded-lg shadow-lg overscroll-none z-50">
+          <h2 className="text-5xl md:text-6xl text-gray-300 font-extrabold uppercase mb-4">Get in touch</h2>
+          <form ref={form} onSubmit={handleSubmit} className="grid justify-center md:pt-32">
             <div className="flex flex-col lg:flex-row justify-evenly my-10">
               <div className="grid my-3 group transition-all duration-300 ease-in-out">
                 <label className="text-gray-300 text-sm" htmlFor="name">Name</label>
@@ -97,7 +129,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
               </button>
             </div>
           </form>
-          <button className="text-gray-300 hover:text-sienna mt-16" onClick={onClose}>
+          <button className="text-gray-300 hover:text-sienna pt-16 pb-24" onClick={onClose}>
             <svg
               className="w-12 h-12"
               fill="none"
@@ -105,12 +137,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="3"
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>

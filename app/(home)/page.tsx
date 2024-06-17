@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { FlipWords } from "@/components/ui/flip-words";
-import { outfit, zilla } from "@/fonts";
-import { Boxes } from "@/components/ui/background-boxes";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 const words = [
   "Hello!",
@@ -41,6 +40,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
+      <BackgroundBeams />
     </main>
   );
 }

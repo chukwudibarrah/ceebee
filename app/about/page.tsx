@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -7,7 +7,9 @@ import { outfit, zilla } from "@/fonts";
 export default function About() {
   return (
     <div className="min-h-screen font-poppins w-screen overscroll-none overflow-hidden flex flex-col items-center justify-center bg-neutral-950 pt-32">
-      <h1 className={`fixed bottom-36 -z-0 text-[160px] leading-[150px] md:text-[400px] md:leading-[230px] opacity-5 text-gray-200/40 font-extrabold select-none`}>
+      <h1
+        className={`fixed bottom-36 -z-0 text-[160px] leading-[150px] md:text-[400px] md:leading-[230px] opacity-5 text-gray-200/40 font-extrabold select-none`}
+      >
         about
         <br />
         me
@@ -46,15 +48,15 @@ export default function About() {
           transition={{ delay: 0.9, duration: 0.75 }}
           className="leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
         >
-          I&apos;m not a web
-          developer, copywriting pro, ninja, guru, or wordsmith. I understand
-          that the English language is a complicated subject and how it can be
-          tweaked and adjusted to convey the right message is continuously
-          changing. As long as that understanding is clear and solid, I can create
-          content for/about almost any subject or industry.
-          </motion.p>
+          I&apos;m not a web developer, copywriting pro, ninja, guru, or
+          wordsmith. I understand that the English language is a complicated
+          subject and how it can be tweaked and adjusted to convey the right
+          message is continuously changing. As long as that understanding is
+          clear and solid, I can create content for/about almost any subject or
+          industry.
+        </motion.p>
 
-          <motion.p
+        <motion.p
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.1, duration: 0.75 }}
@@ -71,18 +73,16 @@ export default function About() {
         >
           I do things; primarily online content that includes creating websites
           like{" "}
-          <span className="group text-gray-300 transition-all duration-300 ease-in-out">
-            <span className="">
-              <Link
-                href="https://www.blackgourd.com"
-                target="_blank"
-                rel="noopener"
-                className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna"
-              >
-                Black Gourd
-              </Link>
+          <Link
+            href="https://www.blackgourd.com"
+            target="_blank"
+            rel="noopener"
+            className="group text-gray-300 transition-all duration-300 ease-in-out"
+          >
+            <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+              Black Gourd
             </span>
-          </span>
+          </Link>
           , host a podcast and try to catalogue all things Black on{" "}
           <span className="group text-gray-300 transition-all duration-300 ease-in-out">
             <span className="">
@@ -97,40 +97,34 @@ export default function About() {
             </span>
           </span>{" "}
           (and on{" "}
-          <span className="group text-gray-300 transition-all duration-300 ease-in-out">
-            <span className="">
-              <Link
-                href="https://www.otherexpats.com"
-                target="_blank"
-                rel="noopener"
-                className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna"
-              >
-                Other Expats
-              </Link>
+          <Link
+            href="https://www.otherexpats.com"
+            target="_blank"
+            rel="noopener"
+            className="group text-gray-300 transition-all duration-300 ease-in-out"
+          >
+            <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+              Other Expats
             </span>
-          </span>
+          </Link>
           ). You can find some of my editorial and copywriting work in the{" "}
-          <span className="group text-gray-300 transition-all duration-300 ease-in-out">
-            <span className="">
-              <Link
-                href="/journal"
-                className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna"
-              >
-                journal
-              </Link>
-            </span>
-          </span>{" "}
+          <Link
+            href="/journal"
+            className="group text-gray-300 transition-all duration-300 ease-in-out"
+          >
+            <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+              journal
+            </span>{" "}
+          </Link>
           and in my selection of previous{" "}
-          <span className="group text-gray-300 transition-all duration-300 ease-in-out">
-            <span className="">
-              <Link
-                href="/projects"
-                className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna"
-              >
-                projects
-              </Link>
+          <Link
+            href="/projects"
+            className="group text-gray-300 transition-all duration-300 ease-in-out"
+          >
+            <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+              projects
             </span>
-          </span>
+          </Link>
           .
         </motion.p>
 
@@ -143,10 +137,11 @@ export default function About() {
           Things I like
         </motion.p>
         <motion.div
-        animate={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-        transition={{ delay: 1.5, duration: 0.75 }}
-        className="grid md:grid-cols-2 leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light">
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ delay: 1.5, duration: 0.75 }}
+          className="grid md:grid-cols-2 leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
+        >
           <ul className="list-disc list-inside">
             <li>Listening to recorded words</li>
             <li>Walking</li>

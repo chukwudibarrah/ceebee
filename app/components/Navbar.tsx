@@ -17,7 +17,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative w-screen z-50 bg-neutral-950 pt-8 ">
+    <div className="relative w-screen z-30 bg-neutral-950 pt-8 ">
       <DrawerRoot
         direction="right"
         noBodyStyles={true}
