@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { outfit, zilla } from "@/fonts";
+
 
 export default function About() {
   return (

@@ -1,4 +1,3 @@
-"use client";
 
 import Link from "next/link";
 import { FlipWords } from "@/components/ui/flip-words";
@@ -18,6 +17,37 @@ const words = [
   "Marhaba!",
   "Guten tag!",
 ];
+
+export const metadata = {
+  metadataBase: new URL('https://chukwudibarrah.com'),
+  alternates: {
+    canonical: '/',
+  },
+  title: "Chukwudi Barrah",
+  description:
+    "Web editor, developer and copywriter; I enjoy building, creating and problem-solving.",
+  openGraph: {
+    title: "Chukwudi Barrah",
+    type: "website",
+    url: "https://chukwudibarrah.com",
+    siteName: "Chukwudi Barrah",
+    description:
+      "Web editor, developer and copywriter; I enjoy building, creating and problem-solving.",
+      images: [
+        {
+          url: 'https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp', // Must be an absolute URL
+          width: 1634,
+          height: 1160,
+        },
+      ],
+  },
+  twitter: {
+    description: "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
+    card: "summary_large_image",
+    title: "Chukwudi Barrah",
+    images: ["https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp"],
+  },
+};
 
 export default function Home() {
   return (

@@ -1,4 +1,30 @@
 import Link from "next/link";
+import { Metadata } from "next";
+
+
+export const metadata = {
+  title: "Not found | Chukwudi Barrah",
+  description:
+    "A selection of past and ongoing projects I've worked or working on.",
+  openGraph: {
+    title: "Not found | Chukwudi Barrah",
+    type: "website",
+    siteName: "Chukwudi Barrah",
+      images: [
+        {
+          url: 'https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp', // Must be an absolute URL
+          width: 1634,
+          height: 1160,
+        },
+      ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Not found | Chukwudi Barrah",
+    images: ["https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp"],
+  },
+};
+
 
 export default function NotFound() {
   return (

@@ -16,14 +16,14 @@ export const metadata: Metadata = {
   },
   title: "Chukwudi Barrah",
   description:
-    "Web editor, developer and copywriter; I enjoy building, creating and problem-solving.",
+    "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
   openGraph: {
     title: "Chukwudi Barrah",
     type: "website",
     url: "https://chukwudibarrah.com",
     siteName: "Chukwudi Barrah",
     description:
-      "Web editor, developer and copywriter; I enjoy building, creating and problem-solving.",
+      "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
       images: [
         {
           url: 'https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp', // Must be an absolute URL
@@ -33,12 +33,21 @@ export const metadata: Metadata = {
       ],
   },
   twitter: {
-    description: "Web editor, developer and copywriter; I enjoy building, creating and problem-solving.",
+    description: "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
     card: "summary_large_image",
     title: "Chukwudi Barrah",
     images: ["https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp"],
   },
 };
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  "name": "Chukwudi Barrah",
+  "image": "@/public/chukwudi-barrah.webp",
+  "url": "https://chukwudibarrah.com",
+  "description": "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
+}
 
 export default function RootLayout({
   children,
@@ -52,6 +61,10 @@ export default function RootLayout({
       <body className={worksans.className}>
         <GoogleAnalyticsTracking />
         <Navbar />
+        <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
         {children}
         <Analytics />
         <Toaster />
