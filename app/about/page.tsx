@@ -27,7 +27,7 @@ export default function About() {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 0.5, duration: 0.75 }}
-          className="leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide"
+          className="leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide"
         >
           <span className="font-thin">noun </span>[
           <span className="italic font-thin">chook-woo-dee</span>]
@@ -37,7 +37,7 @@ export default function About() {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 0.7, duration: 0.75 }}
-          className="leading-loose text-gray-300 md:text-3xl text-2xl md:px-32 px-11 pt-12 tracking-wide"
+          className="leading-loose text-gray-200 md:text-3xl text-2xl md:px-32 px-11 pt-12 tracking-wide"
         >
           Amateur everything. But, I&apos;m learning.
         </motion.p>
@@ -46,7 +46,7 @@ export default function About() {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 0.9, duration: 0.75 }}
-          className="leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
+          className="leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
         >
           I&apos;m not a web developer, copywriting pro, ninja, guru, or
           wordsmith. I understand that the English language is a complicated
@@ -60,7 +60,7 @@ export default function About() {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.1, duration: 0.75 }}
-          className="leading-loose text-gray-300 md:text-3xl text-2xl md:px-32 px-11 tracking-wide"
+          className="leading-loose text-gray-200 md:text-3xl text-2xl md:px-32 px-11 tracking-wide"
         >
           What I do
         </motion.p>
@@ -69,7 +69,7 @@ export default function About() {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.3, duration: 0.75 }}
-          className="leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
+          className="leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
         >
           I do things; primarily online content that includes creating websites
           like{" "}
@@ -78,14 +78,14 @@ export default function About() {
             aria-label="Visit the Black Gourd Creative Collective website"
             target="_blank"
             rel="noopener"
-            className="group text-gray-300 transition-all duration-300 ease-in-out"
+            className="group text-gray-200 transition-all duration-300 ease-in-out"
           >
             <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
               Black Gourd
             </span>
           </Link>
           , host a podcast and try to catalogue all things Black on{" "}
-          <span className="group text-gray-300 transition-all duration-300 ease-in-out">
+          <span className="group text-gray-200 transition-all duration-300 ease-in-out">
             <span className="">
               <Link
                 href="https://blackside.uk"
@@ -104,7 +104,7 @@ export default function About() {
             aria-label="Visit the Other Expats website"
             target="_blank"
             rel="noopener"
-            className="group text-gray-300 transition-all duration-300 ease-in-out"
+            className="group text-gray-200 transition-all duration-300 ease-in-out"
           >
             <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
               Other Expats
@@ -114,7 +114,7 @@ export default function About() {
           <Link
             href="/journal"
             aria-label="Navigate to the journal page"
-            className="group text-gray-300 transition-all duration-300 ease-in-out"
+            className="group text-gray-200 transition-all duration-300 ease-in-out"
           >
             <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
               journal
@@ -124,7 +124,7 @@ export default function About() {
           <Link
             href="/projects"
             aria-label="Navigate to the projects page"
-            className="group text-gray-300 transition-all duration-300 ease-in-out"
+            className="group text-gray-200 transition-all duration-300 ease-in-out"
           >
             <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
               projects
@@ -137,7 +137,7 @@ export default function About() {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.5, duration: 0.75 }}
-          className="leading-loose text-gray-300 md:text-3xl text-2xl md:px-32 px-11 tracking-wide"
+          className="leading-loose text-gray-200 md:text-3xl text-2xl md:px-32 px-11 tracking-wide"
         >
           Things I like
         </motion.p>
@@ -145,7 +145,7 @@ export default function About() {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.5, duration: 0.75 }}
-          className="grid md:grid-cols-2 leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
+          className="grid md:grid-cols-2 leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
         >
           <ul className="list-disc list-inside">
             <li>Listening to recorded words</li>
@@ -162,10 +162,10 @@ export default function About() {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.7, duration: 0.75 }}
-          className="leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
+          className="leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
         >
           ps. Send any enquiries to{" "}
-          <span className="group text-gray-300 transition-all duration-300 ease-in-out">
+          <span className="group text-gray-200 transition-all duration-300 ease-in-out">
             <span className="">
               <Link
                 href="mailto:ndeewo@chukwudibarrah.com"
