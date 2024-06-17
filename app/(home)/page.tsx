@@ -25,14 +25,14 @@ export const metadata = {
   },
   title: "Chukwudi Barrah",
   description:
-    "Web editor, developer and copywriter; I enjoy building, creating and problem-solving.",
+    "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
   openGraph: {
     title: "Chukwudi Barrah",
     type: "website",
     url: "https://chukwudibarrah.com",
     siteName: "Chukwudi Barrah",
     description:
-      "Web editor, developer and copywriter; I enjoy building, creating and problem-solving.",
+      "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
       images: [
         {
           url: 'https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp', // Must be an absolute URL
