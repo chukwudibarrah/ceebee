@@ -27,19 +27,18 @@ export default function Home() {
         <br />
         barrah
       </h1>
-      <div className="text-[58px] pt-28 md:pt-0 md:text-[130px] lg:text-[250px] font-bold z-20">
+      <div className="text-[58px] pt-28 md:pt-0 md:text-[130px] lg:text-[250px] font-bold">
         <FlipWords words={words} />
       </div>
-      <div>
-        <div className="overflow-hidden text-center mt-20 md:mt-28 group text-gray-200 transition-all duration-300 ease-in-out">
-          <Link
-            href="/about"
-            className={`text-gray-200 text-lg md:text-3xl lg:text-4xl font-thin bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_5px] bg-no-repeat group-hover:bg-[length:0%_5px] transition-all duration-700 ease-out z-20 hover:text-sienna`}
+        <Link 
+        href="/about"
+        className="overflow-hidden text-center mt-20 md:mt-28 group text-gray-200 transition-all duration-300 ease-in-out z-50">
+          <span
+            className={`text-gray-200 text-lg md:text-3xl lg:text-4xl font-thin bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_5px] bg-no-repeat group-hover:bg-[length:0%_5px] transition-all duration-700 ease-out hover:text-sienna`}
           >
             Wait, who&apos;s Chukwudi Barrah?
-          </Link>
-        </div>
-      </div>
+          </span>
+        </Link>
       <BackgroundBeams />
     </main>
   );
