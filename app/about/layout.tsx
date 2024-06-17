@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description: "Web editor, developer and copywriter; I enjoy building, creating and problem-solving.",
     card: "summary_large_image",
     title: "About | Chukwudi Barrah",
-    images: ["@/public/chukwudi-barrah.webp"],
+    images: ["https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudi-barrah.webp"],
   },
 };
 
