@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 import { sendGAEvent } from "@next/third-parties/google";
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/toaster";
 import { worksans } from "@/styles/fonts";
 import "./globals.css";
 import Footer from "./components/Footer";
@@ -14,10 +14,23 @@ export const metadata: Metadata = {
   title: "Chukwudi Barrah",
   description:
     "Web editor, developer and copywriter; I enjoy building, creating and problem-solving.",
-    openGraph: {
-      title: 'Chukwudi Barrah',
-      description: "Web editor, developer and copywriter; I enjoy building, creating and problem-solving.",
-    },
+  openGraph: {
+    title: "Chukwudi Barrah",
+    type: "website",
+    url: "https://chukwudibarrah.com",
+    siteName: "Chukwudi Barrah",
+    description:
+      "Web editor, developer and copywriter; I enjoy building, creating and problem-solving.",
+    images:
+      "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
+  },
+  twitter: {
+    description: "Web editor, developer and copywriter; I enjoy building, creating and problem-solving.",
+    card: "summary_large_image",
+    title: "Chukwudi Barrah",
+    images: "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
+  },
+  appleWebApp: true,
 };
 
 export default function RootLayout({
@@ -33,7 +46,7 @@ export default function RootLayout({
         <GoogleAnalyticsTracking />
         <Navbar />
         {children}
-        <Analytics/>
+        <Analytics />
         <Toaster />
         <Footer />
       </body>
