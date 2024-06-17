@@ -1,0 +1,120 @@
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { getArticle, getRelatedArticles } from "@/lib/api";
+import LoadingAnimation from "@/app/components/LoadingAnimation";
+import { ArticleEntry, RelatedArticleEntry } from "@/lib/contentfulTypes";
+
+const PostContent = ({ slug }: { slug: string }) => {
+  const [article, setArticle] = useState<ArticleEntry | null>(null);
+  const [relatedArticles, setRelatedArticles] = useState<Array<RelatedArticleEntry>>([]);
+  const [isFetching, setIsFetching] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        const fetchedArticle = await getArticle(slug);
+        if (fetchedArticle) {
+          setArticle(fetchedArticle);
+
+          // Fetch related articles if they exist
+          if (fetchedArticle.fields.related && fetchedArticle.fields.related.length > 0) {
+            const relatedArticles = await getRelatedArticles(fetchedArticle.fields.related);
+            setRelatedArticles(relatedArticles);
+          }
+        } else {
+          setError("Article not found");
+        }
+      } catch (error) {
+        setError("Error fetching article");
+      } finally {
+        setIsFetching(false);
+      }
+    };
+
+    if (slug) {
+      fetchArticle();
+    }
+  }, [slug]);
+
+  const formatDate = (dateString: string) => {
+    const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString("en-UK", options);
+  };
+
+  if (isFetching) {
+    return <LoadingAnimation />;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!article) {
+    return <div>No article found.</div>;
+  }
+
+  const renderOptions = {
+    renderNode: {
+      "embedded-asset-block": (node: any) => (
+        <Image
+          key={node.data.target.sys.id}
+          src={`https:${node.data.target.fields.file.url}`}
+          alt={node.data.target.fields.description}
+          width={node.data.target.fields.file.details.image.width}
+          height={node.data.target.fields.file.details.image.height}
+        />
+      ),
+      // Add other custom render nodes as needed
+    },
+  };
+
+  return (
+    <article className="min-w-screen overflow-hidden bg-neutral-950">
+      <div className="lg:px-28 md:px-16 px-4 my-10">
+        <h1 className="text-5xl md:text-8xl font-bold text-gray-200">{article.fields.title}</h1>
+        <p className="my-4 text-gray-200">{formatDate(article.fields.published)}</p>
+      </div>
+      {article.fields.featuredImage && (
+        <div className="lg:px-28 md:px-16 px-4 my-10 w-full">
+          <Image
+            src={`https:${article.fields.featuredImage.fields.file.url}`}
+            alt="Article Thumbnail"
+            width={article.fields.featuredImage.fields.file.details.image.width}
+            height={article.fields.featuredImage.fields.file.details.image.height}
+          />
+        </div>
+      )}
+      <div className="lg:px-28 md:px-16 px-4 my-16">
+        <div className="my-16 text-gray-200">{documentToReactComponents(article.fields.content, renderOptions)}</div>
+        <hr />
+        {relatedArticles.length > 0 && (
+          <div>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-outfit mt-20 mb-12 text-gray-200">Related Articles</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {relatedArticles.map((relatedArticle) => (
+                <div key={relatedArticle.sys.id} className="border border-gray-300 rounded-lg overflow-hidden">
+                  {relatedArticle.fields.featuredImage && (
+                    <Image
+                      src={`https:${relatedArticle.fields.featuredImage.fields.file.url}`}
+                      alt="Related Article Thumbnail"
+                      width={relatedArticle.fields.featuredImage.fields.file.details.image.width}
+                      height={relatedArticle.fields.featuredImage.fields.file.details.image.height}
+                    />
+                  )}
+                  <div className="p-4">
+                    <h2 className="text-xl md:text-2xl font-bold mb-2">{relatedArticle.fields.title}</h2>
+                    <p>{relatedArticle.fields.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </article>
+  );
+};
+
+export default PostContent;

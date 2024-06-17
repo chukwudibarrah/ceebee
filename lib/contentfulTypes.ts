@@ -1,7 +1,6 @@
 import { Document } from "@contentful/rich-text-types";
 import { Asset, Entry, EntrySkeletonType } from "contentful";
 
-// Define the structure for the Image fields
 interface ImageFields {
   file: {
     url: string;
@@ -17,23 +16,21 @@ interface ImageFields {
 
 type AssetWithFields<T> = Asset & T;
 
-// Define the structure for the Article fields
 export interface ArticleFields {
   title: string;
-  related: string;
   slug: string;
+  description: string;
+  related: string[]; // Assuming related entry IDs are strings
   content: Document;
   published: string;
   featuredImage?: AssetWithFields<ImageFields>;
+  relatedArticles: ArticleEntry[] | null; // Define relatedArticles as an array of ArticleEntry
+  [key: string]: any; // Allow for additional dynamic properties
 }
 
-
-// Define the structure for the Article skeleton
 export interface ArticleSkeleton extends EntrySkeletonType {
   contentTypeId: "journal";
   fields: ArticleFields;
-  // field: RelatedArticleFields;
 }
 
-// Define the structure for the Article Entry
 export type ArticleEntry = Entry<ArticleSkeleton>;

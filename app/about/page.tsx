@@ -44,7 +44,7 @@ export default function About() {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 0.9, duration: 0.75 }}
-          className="leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-thin"
+          className="leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
         >
           I&apos;m not a web
           developer, copywriting pro, ninja, guru, or wordsmith. I understand
@@ -67,7 +67,7 @@ export default function About() {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.3, duration: 0.75 }}
-          className="leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-thin"
+          className="leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
         >
           I do things; primarily online content that includes creating websites
           like{" "}
@@ -146,7 +146,7 @@ export default function About() {
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         transition={{ delay: 1.5, duration: 0.75 }}
-        className="grid md:grid-cols-2 leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-thin">
+        className="grid md:grid-cols-2 leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light">
           <ul className="list-disc list-inside">
             <li>Listening to recorded words</li>
             <li>Walking</li>
@@ -162,7 +162,7 @@ export default function About() {
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.7, duration: 0.75 }}
-          className="leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-thin"
+          className="leading-loose text-gray-300 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
         >
           ps. Send any enquiries to{" "}
           <span className="group text-gray-300 transition-all duration-300 ease-in-out">
