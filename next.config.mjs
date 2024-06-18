@@ -21,12 +21,21 @@ const nextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: "frame-ancestors'self' https://app.contentful.com",
+            value: "frame-ancestors 'self' https://app.contentful.com",
           },
         ],
       },
-    ]
-  }
+    ];
+  },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      (async () => {
+        await import('./scripts/generate-sitemap.mjs');
+      })();
+    }
+
+    return config;
+  },
 };
 
 export default nextConfig;

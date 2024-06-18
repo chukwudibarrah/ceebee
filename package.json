@@ -23,6 +23,7 @@
     "emailjs": "^4.0.3",
     "framer-motion": "^11.2.10",
     "fs": "^0.0.1-security",
+    "globby": "^14.0.1",
     "lucide-react": "^0.394.0",
     "mini-svg-data-uri": "^1.4.4",
     "moment": "^2.30.1",

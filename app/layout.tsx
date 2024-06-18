@@ -44,7 +44,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   "name": "Chukwudi Barrah",
-  "image": "@/public/chukwudi-barrah.webp",
+  "image": "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
   "url": "https://chukwudibarrah.com",
   "description": "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
 }
