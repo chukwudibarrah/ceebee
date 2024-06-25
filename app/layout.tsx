@@ -58,9 +58,6 @@ const jsonLd = {
       "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
     description:
       "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
-    mainEntityOfPage: {
-      "@id": "https://chukwudibarrah.com",
-    },
     sameAs: [
       "https://medium.com/@chukwudibarrah",
       "https://www.linkedin.com/in/cbarrah",
@@ -68,7 +65,7 @@ const jsonLd = {
       "https://www.instagram.com/dude.with.a.camera/",
       "https://www.facebook.com/thechukwudibarrah",
     ],
-    place: {
+    homeLocation: {
       "@type": "Place",
       "name": "United Kingdom",
       "geo": {
