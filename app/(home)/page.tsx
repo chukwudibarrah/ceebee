@@ -49,6 +49,8 @@ export const metadata = {
   },
 };
 
+
+
 export default function Home() {
   return (
     <main className={`min-h-screen w-screen overscroll-none overflow-hidden flex flex-col items-center justify-center bg-neutral-950`}>
