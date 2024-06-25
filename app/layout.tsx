@@ -43,20 +43,6 @@ export const metadata: Metadata = {
   },
 };
 
-// const jsonLd = {
-//   "@context": "https://schema.org",
-//   "@type": "WebSite",
-//   url: "https://chukwudibarrah.com",
-//   description:
-//     "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
-//   about: {
-//     name: "Chukwudi Barrah",
-//     jobTitle: "Web Editor",
-//     image:
-//       "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
-//   },
-// };
-
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -64,26 +50,21 @@ const jsonLd = {
       '@type': 'Person',
       '@id': 'https://chukwudibarrah.com',
       name: 'Chukwudi Barrah',
-      hasOccupation: {
-        '@type': 'Occupation',
-        name: 'Web Editor, Front-end Web Developer and Copywriter',
-      },
       mainEntityOfPage: {'@id': 'https://chukwudibarrah.com'},
       subjectOf: {'@id': 'https://chukwudibarrah.com'},
     },
     {
       '@type': 'AboutPage',
-      '@id': 'https://chukwudibarrah.com',
-      url: 'https://my.site',
-      name: "Chukwudi Barrah's Website",
-      inLanguage: 'en-US',
-      description: 'The personal website of LISP legend Chukwudi Barrah',
+      '@id': 'https://chukwudibarrah.com/about',
+      url: 'https://chukwudibarrah.com/about',
+      name: "About Chukwudi Barrah",
+      description: 'Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.',
       mainEntity: {'@id': 'https://chukwudibarrah.com'},
     },
     {
       '@type': 'WebPage',
       '@id': 'https://chukwudibarrah.com',
-      url: 'https://my.site/about/',
+      url: 'https://chukwudibarrah.com',
       name: "Chukwudi Barrah",
       isPartOf: {
         '@id': 'https://chukwudibarrah.com',
