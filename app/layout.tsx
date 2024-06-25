@@ -41,12 +41,19 @@ export const metadata: Metadata = {
 };
 
 const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
+  "@context": "https://schema.org",
+  "@type": "Person",
   "name": "Chukwudi Barrah",
+  "jobTitle": "Web Editor",
   "image": "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
   "url": "https://chukwudibarrah.com",
   "description": "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
+  "same as": [
+    "https://www.facebook.com/thechukwudibarrah",
+    "https://www.linkedin.com/in/cbarrah/",
+    "https://github.com/chukwudibarrah",
+    "https://www.instagram.com/dude.with.a.camera/",
+  ]
 }
 
 export default function RootLayout({
