@@ -46,60 +46,39 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "url": "https://chukwudibarrah.com",
-  "about": {
+  url: "https://chukwudibarrah.com",
+  image:
+    "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
+  about: {
     "@type": "Person",
-    "@id": "https://chukwudibarrah.com/about",
+    "@id": "https://chukwudibarrah.com",
     name: "Chukwudi Barrah",
+    jobTitle: "Web editor, front-end web developer and copywriter",
+    image:
+      "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
+    description:
+      "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
     mainEntityOfPage: {
       "@id": "https://chukwudibarrah.com",
     },
-    "sameAs": [
+    sameAs: [
       "https://medium.com/@chukwudibarrah",
       "https://www.linkedin.com/in/cbarrah",
       "https://github.com/chukwudibarrah",
       "https://www.instagram.com/dude.with.a.camera/",
       "https://www.facebook.com/thechukwudibarrah",
-    ]
-  }
-
-  
+    ],
+    place: {
+      "@type": "Place",
+      "name": "United Kingdom",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "53.2913072",
+        "longitude": "-1.3309752",
+      }
+    }
+  },
 };
-
-// const jsonLd = {
-//   '@context': 'https://schema.org',
-//   '@graph': [
-//     {
-//       '@type': 'Person',
-//       '@id': 'https://chukwudibarrah.com',
-//       name: 'Chukwudi Barrah',
-//       mainEntityOfPage: {'@id': 'https://chukwudibarrah.com'},
-//       subjectOf: {'@id': 'https://chukwudibarrah.com'},
-//       description: "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem",
-//       image: "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
-//     },
-//     {
-//       '@type': 'WebSite',
-//       '@id': 'https://chukwudibarrah.com',
-//       url: 'https://chukwudibarrah.com',
-//       name: "Chukwudi Barrah",
-//       inLanguage: 'en-GB',
-//       isPartOf: {
-//         '@id': 'https://chukwudibarrah.com',
-//       },
-//       about: {'@id': 'https://chukwudibarrah.com'},
-//       mainEntity: {'@id': 'https://chukwudibarrah.com'},
-//     },
-//     {
-//       '@type': 'AboutPage',
-//       '@id': 'https://chukwudibarrah.com/about',
-//       url: 'https://chukwudibarrah.com/about',
-//       name: "About Chukwudi Barrah",
-//       description: 'Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.',
-//       mainEntity: {'@id': 'https://chukwudibarrah.com'},
-//     },
-//   ],
-// };
 
 export default function RootLayout({
   children,
