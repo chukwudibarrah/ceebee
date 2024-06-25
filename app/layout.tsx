@@ -40,7 +40,14 @@ export const metadata: Metadata = {
   },
 };
 
-
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  "name": "Chukwudi Barrah",
+  "image": "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
+  "url": "https://chukwudibarrah.com",
+  "description": "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
+}
 
 export default function RootLayout({
   children,
@@ -54,6 +61,10 @@ export default function RootLayout({
       <body className={worksans.className}>
         <GoogleAnalyticsTracking />
         <Navbar />
+        <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
         {children}
         <Analytics />
         <Toaster />
