@@ -49,9 +49,22 @@ export const metadata = {
   },
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  "name": "Chukwudi Barrah",
+  "image": "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
+  "url": "https://chukwudibarrah.com",
+  "description": "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
+}
+
 export default function Home() {
   return (
     <main className={`min-h-screen w-screen overscroll-none overflow-hidden flex flex-col items-center justify-center bg-neutral-950`}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <h1 className="fixed z-0 text-[90px] leading-[90px] md:text-[250px] md:leading-[250px] lg:text-[350px] lg:leading-[300px] opacity-5 text-gray-200 font-extrabold select-none">
         chukwudi
         <br />
