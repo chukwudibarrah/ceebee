@@ -43,37 +43,68 @@ export const metadata: Metadata = {
   },
 };
 
+// const jsonLd = {
+//   "@context": "https://schema.org",
+//   "@type": "WebSite",
+//   url: "https://chukwudibarrah.com",
+//   image:
+//     "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
+//   about: {
+//     "@type": "Person",
+//     "@id": "https://chukwudibarrah.com",
+//     name: "Chukwudi Barrah",
+//     jobTitle: "Web editor, front-end web developer and copywriter",
+//     image:
+//       "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
+//     description:
+//       "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
+//     sameAs: [
+//       "https://medium.com/@chukwudibarrah",
+//       "https://www.linkedin.com/in/cbarrah",
+//       "https://github.com/chukwudibarrah",
+//       "https://www.instagram.com/dude.with.a.camera/",
+//       "https://www.facebook.com/thechukwudibarrah",
+//     ],
+//     homeLocation: {
+//       "@type": "Place",
+//       "name": "United Kingdom",
+//       "geo": {
+//         "@type": "GeoCoordinates",
+//         "latitude": "53.2913072",
+//         "longitude": "-1.3309752",
+//       }
+//     }
+//   },
+// };
+
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
+  "@type": "Person",
+  name: "Chukwudi Barrah",
+  givenName: "Chukwudi",
+  familyName: "Barrah",
   url: "https://chukwudibarrah.com",
+  jobTitle: "Web editor, front-end web developer and copywriter",
+  description:
+    "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
   image:
     "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
-  about: {
-    "@type": "Person",
-    "@id": "https://chukwudibarrah.com",
-    name: "Chukwudi Barrah",
-    jobTitle: "Web editor, front-end web developer and copywriter",
-    image:
-      "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
-    description:
-      "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
-    sameAs: [
-      "https://medium.com/@chukwudibarrah",
-      "https://www.linkedin.com/in/cbarrah",
-      "https://github.com/chukwudibarrah",
-      "https://www.instagram.com/dude.with.a.camera/",
-      "https://www.facebook.com/thechukwudibarrah",
-    ],
-    homeLocation: {
-      "@type": "Place",
-      "name": "United Kingdom",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "53.2913072",
-        "longitude": "-1.3309752",
-      }
-    }
+  mainEntityOfPage: "https://chukwudibarrah.com",
+  sameAs: [
+    "https://medium.com/@chukwudibarrah",
+    "https://www.linkedin.com/in/cbarrah",
+    "https://github.com/chukwudibarrah",
+    "https://www.instagram.com/dude.with.a.camera/",
+    "https://www.facebook.com/thechukwudibarrah",
+  ],
+  homeLocation: {
+    "@type": "Place",
+    name: "United Kingdom",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "53.2913072",
+      longitude: "-1.3309752",
+    },
   },
 };
 
