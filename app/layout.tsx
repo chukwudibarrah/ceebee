@@ -79,43 +79,43 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Chukwudi Barrah",
-  givenName: "Chukwudi",
-  familyName: "Barrah",
-  url: "https://chukwudibarrah.com",
-  jobTitle: "Web editor, front-end web developer and copywriter",
-  description:
-    "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
-  image:
-    "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
-  mainEntityOfPage: {
-    "@type": "WebPage",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: "Chukwudi Barrah",
+    givenName: "Chukwudi",
+    familyName: "Barrah",
+    jobTitle: "Web Editor",
+    image:
+      "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
     url: "https://chukwudibarrah.com",
-  },
-  sameAs: [
-    "https://medium.com/@chukwudibarrah",
-    "https://www.linkedin.com/in/cbarrah",
-    "https://github.com/chukwudibarrah",
-    "https://www.instagram.com/dude.with.a.camera/",
-    "https://www.facebook.com/thechukwudibarrah",
-  ],
-  homeLocation: {
-    "@type": "Place",
-    name: "United Kingdom",
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: "53.2913072",
-      longitude: "-1.3309752",
+    worksFor: {
+      "@type": "Organization",
+      name: "British Psychological Society",
+      url: "https://bps.org.uk/",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Leicester",
+        addressRegion: "England",
+        postalCode: "LE1 7DR",
+        streetAddress: "St Andrews House,",
+        addressCountry: "UK",
+      },
     },
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "High Street",
-    addressLocality: "Britain",
-    addressRegion: "England",
-    postalCode: "ABC 123",
-    addressCountry: "UK",
+    gender: "male",
+    alumniOf: [
+      {
+        "@type": "CollegeOrUniversity",
+        name: "Sheffield Hallam University",
+      },
+    ],
+    sameAs: [
+      "https://medium.com/@chukwudibarrah",
+      "https://www.linkedin.com/in/cbarrah",
+      "https://github.com/chukwudibarrah",
+      "https://www.instagram.com/dude.with.a.camera/",
+      "https://www.facebook.com/thechukwudibarrah",
+    ],
   },
 };
 
@@ -129,10 +129,10 @@ export default function RootLayout({
       <GoogleTagManager gtmId="G-141ZFEMEVE" />
       <GoogleAnalytics gaId="G-141ZFEMEVE" />
       <body className={worksans.className}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <GoogleAnalyticsTracking />
         <Navbar />
         {children}
