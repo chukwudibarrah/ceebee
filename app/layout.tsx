@@ -108,17 +108,19 @@ const jsonLd = {
   },
   hasOccupation: {
     "@type": "Occupation",
+    name: "Web editor",
+    description: "Creates, manages and maintains web content.",
     occupationLocation: {
-      AdministrativeArea: {
+      "@type": "AdministrativeArea",
         name: "United Kingdom",
         geo: {
           "@type": "GeoCoordinates",
           latitude: "53.2913072",
           longitude: "-1.3309752",
         },
-      },
     },
     skills: "Wed editing, copywriting and front-end web development",
+    estimatedSalary: "0",
   },
 };
 
@@ -131,11 +133,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <GoogleTagManager gtmId="G-141ZFEMEVE" />
       <GoogleAnalytics gaId="G-141ZFEMEVE" />
+      <body className={worksans.className}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <body className={worksans.className}>
         <GoogleAnalyticsTracking />
         <Navbar />
         {children}

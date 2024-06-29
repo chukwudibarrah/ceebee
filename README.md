@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio
 
-## Getting Started
+This update (and upgrade) switches to NextJS to take advantage of server-side rendering and imporvements to SEO and speed. Also switched to MongoDB from FaunaDB and took advantage of several ready-made UI components from Aceternity.
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Future development](#future-developments)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The goal was to create an interactive website that was minimal and clean, and effective and fully responsive regardless of device.
 
-## Learn More
+### Screenshot
 
-To learn more about Next.js, take a look at the following resources:
+![Home](./screenshots/home.png)
+![Contact page](./screenshots/contact.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Links
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Live site URL: [Portfolio](https://chukwudibarrah.com/)
 
-## Deploy on Vercel
+## My process
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Built with
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Some of the tech that went into building the website include the following (not exhaustive) list:
+
+- Semantic HTML5 markup
+- [NextJS](https://vitejs.dev/)
+- [Tailwindcss](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Lottie Files](https://lottiefiles.com/)
+- [MongoDB](https://fauna.com/) - serverless database
+- [Vercel](https://vercel.com/) - hosting
+- [Contentful](https://www.contentful.com/) - Content CMS
+- [AceternityUI](https://github.com/tameemsafi/typewriterjs)
