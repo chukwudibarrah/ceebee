@@ -116,14 +116,14 @@ const jsonLd = {
     occupationLocation: {
       "@type": "AdministrativeArea",
         name: "United Kingdom",
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: "53.2913072",
-          longitude: "-1.3309752",
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "Britain",
+          addressLocality: "England",
+          addressRegion: "United Kingdom",
         },
     },
     skills: "Wed editing, copywriting and front-end web development",
-    estimatedSalary: "1",
     mainEntityOfPage: {
       "@type": "WebPage",
       url: "https://chukwudibarrah.com",
