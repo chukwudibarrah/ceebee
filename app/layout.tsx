@@ -106,6 +106,20 @@ const jsonLd = {
       longitude: "-1.3309752",
     },
   },
+  hasOccupation: {
+    "@type": "Occupation",
+    occupationLocation: {
+      AdministrativeArea: {
+        name: "United Kingdom",
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: "53.2913072",
+          longitude: "-1.3309752",
+        },
+      },
+    },
+    skills: "Wed editing, copywriting and front-end web development",
+  },
 };
 
 export default function RootLayout({
