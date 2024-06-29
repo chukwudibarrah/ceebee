@@ -89,7 +89,10 @@ const jsonLd = {
     "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
   image:
     "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
-  mainEntityOfPage: "https://chukwudibarrah.com",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    url: "https://chukwudibarrah.com",
+  },
   sameAs: [
     "https://medium.com/@chukwudibarrah",
     "https://www.linkedin.com/in/cbarrah",
@@ -120,7 +123,11 @@ const jsonLd = {
         },
     },
     skills: "Wed editing, copywriting and front-end web development",
-    estimatedSalary: "0",
+    estimatedSalary: "1",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      url: "https://chukwudibarrah.com",
+    },
   },
 };
 
