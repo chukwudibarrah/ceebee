@@ -109,25 +109,13 @@ const jsonLd = {
       longitude: "-1.3309752",
     },
   },
-  hasOccupation: {
-    "@type": "Occupation",
-    name: "Web editor",
-    description: "Creates, manages and maintains web content.",
-    occupationLocation: {
-      "@type": "AdministrativeArea",
-        name: "United Kingdom",
-        address: {
-          "@type": "PostalAddress",
-          addressCountry: "Britain",
-          addressLocality: "England",
-          addressRegion: "United Kingdom",
-        },
-    },
-    skills: "Wed editing, copywriting and front-end web development",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      url: "https://chukwudibarrah.com",
-    },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "High Street",
+    addressLocality: "Britain",
+    addressRegion: "England",
+    postalCode: "ABC 123",
+    addressCountry: "UK",
   },
 };
 
