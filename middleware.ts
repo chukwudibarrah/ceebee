@@ -136,8 +136,8 @@ export async function middleware(request) {
     "baiduspider",
     "facebookexternalhit",
     "twitterbot",
-    "rogerbot",
     "linkedinbot",
+    "rogerbot",
     "embedly",
     "quora link preview",
     "showyoubot",
@@ -183,12 +183,13 @@ export async function middleware(request) {
     return NextResponse.next();
   }
 
-  // Remove prerender redirection for Facebook bots for testing purposes
-  if (isBot && userAgent.toLowerCase().includes("facebookexternalhit")) {
+  // Bypass prerendering for social media bots (Facebook, LinkedIn, Twitter)
+  const socialBots = ["facebookexternalhit", "linkedinbot", "twitterbot"];
+  if (isBot && socialBots.some(bot => userAgent.toLowerCase().includes(bot))) {
     return NextResponse.next(); // Serve the page directly without prerender
   }
 
-  // Original prerendering logic for other bots
+  // Prerendering logic for other bots
   const newURL = `https://service.prerender.io/${request.url}`;
   const newHeaders = new Headers(request.headers);
   newHeaders.set("X-Prerender-Token", process.env.NEXT_PUBLIC_PRERENDER_TOKEN);

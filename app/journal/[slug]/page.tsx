@@ -40,12 +40,15 @@ export async function generateMetadata({ params }) {
     ? `https:${articleFields.featuredImage.fields.file.url}`
     : "/default-image.jpg";
 
+  const postUrl = `https://chukwudibarrah.com/journal/${slug}`;
+
   return {
     title,
     description,
     openGraph: {
       title,
       description,
+      url: postUrl,
       images: [
         {
           url: featuredImageUrl,
@@ -61,8 +64,12 @@ export async function generateMetadata({ params }) {
       description,
       images: [featuredImageUrl],
     },
+    alternates: {
+      canonical: postUrl,
+    },
   };
 }
+
 
 
 const PostPage = ({ params }) => {

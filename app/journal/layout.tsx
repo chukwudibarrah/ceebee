@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chukwudibarrah.com'),
-  alternates: {
-    canonical: '/journal',
-  },
+  // alternates: {
+  //   canonical: '/journal',
+  // },
   title: "Journal | Chukwudi Barrah",
   description:
     "Writing is never truly finished; only abandoned. These are a collection of my abandoned musings and thoughts.",
