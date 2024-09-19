@@ -14,6 +14,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = params;
   const article = await getArticle(slug);
+  
   if (!article) {
     return {
       title: "Article not found",
@@ -34,17 +35,35 @@ export async function generateMetadata({ params }) {
   };
 
   const title = `${articleFields.title} | Chukwudi Barrah`;
+  const description = articleFields.description || "No description available";
+  const featuredImageUrl = articleFields.featuredImage
+    ? `https:${articleFields.featuredImage.fields.file.url}`
+    : "/default-image.jpg";
 
   return {
     title,
-    description: articleFields.description,
+    description,
     openGraph: {
-      images: articleFields.featuredImage
-        ? [`https:${articleFields.featuredImage.fields.file.url}`]
-        : [],
+      title,
+      description,
+      images: [
+        {
+          url: featuredImageUrl,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [featuredImageUrl],
     },
   };
 }
+
 
 const PostPage = ({ params }) => {
   const { slug } = params;
