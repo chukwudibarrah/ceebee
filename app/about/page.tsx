@@ -42,21 +42,7 @@ export default function About() {
           Amateur everything. But, I&apos;m learning.
         </motion.p>
 
-        <motion.p
-          animate={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          transition={{ delay: 0.9, duration: 0.75 }}
-          className="leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
-        >
-          I&apos;m not a web developer, copywriting pro, ninja, guru, or
-          wordsmith. I understand that the English language is a complicated
-          subject and how it can be tweaked and adjusted to convey the right
-          message is continuously changing. As long as that understanding is
-          clear and solid, I can create content for/about almost any subject or
-          industry.
-        </motion.p>
-
-        <motion.p
+         <motion.p
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.1, duration: 0.75 }}
