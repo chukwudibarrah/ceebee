@@ -23,7 +23,7 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
-  title: "Chukwudi Barrah",
+  title: "Home",
   description:
     "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
   openGraph: {
