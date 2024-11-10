@@ -18,10 +18,9 @@ export default function Journal() {
       try {
         const response = await client.getEntries({
           content_type: "journal",
-          order: ["fields.published"], // Sort by published date
+          order: ["fields.published"],
         });
 
-        // Grouping posts by year and month of publication
         const groupedPostsByYear = response.items.reduce((acc, post) => {
           const publishedDate = post.fields.published;
           if (typeof publishedDate === "string") {
@@ -52,59 +51,54 @@ export default function Journal() {
   }, [client]);
 
   return (
-    <div className="flex min-h-screen w-screen overscroll-none bg-neutral-950 justify-center">
+    <div className="min-h-screen w-full bg-neutral-950">
       <h1
-        className={`fixed pt-64 -z-0 text-[200px] leading-[150px] md:text-[400px] md:leading-[300px] opacity-5 text-gray-200/40 font-extrabold`}
+        className="fixed left-1/2 top-32 -translate-x-1/2 -z-0 text-[200px] leading-[150px] md:text-[400px] md:leading-[300px] opacity-5 text-gray-200/40 font-extrabold text-center whitespace-nowrap"
       >
         jour
         <br />
         nal
       </h1>
-      <div className="py-32 justify-items-center md:mx-28 mx-4 z-10">
+      <div className="relative max-w-6xl mx-auto py-32 px-4 md:px-8 z-10">
         {Object.keys(groupedPosts)
-          .map(Number) // Convert keys to numbers
-          .sort((a, b) => b - a) // Sort by latest year first
+          .map(Number)
+          .sort((a, b) => b - a)
           .map((year) => (
-            <div key={year} className="pb-10">
-              <h3
-                className={`text-sienna font-thin text-sm md:text-normal uppercase pb-2 pt-10`}
-              >
+            <div key={year} className="mb-16">
+              <div className="text-sienna font-thin text-sm md:text-base uppercase mb-8">
                 {year}
-              </h3>
-              <div className="grid grid-cols-3">
-                <div>
+              </div>
+              <div className="grid grid-cols-12 gap-4">
+                <div className="col-span-3">
                   {Object.keys(groupedPosts[year])
-                    .sort((a, b) => moment(b, "MMM").month() - moment(a, "MMM").month()) // Sort months in reverse order
+                    .sort((a, b) => moment(b, "MMM").month() - moment(a, "MMM").month())
                     .map((month) => (
-                      <div key={month} className="pb-12 xl:pb-5">
-                        <h4
-                          className={`uppercase text-sienna text-xl md:text-2xl font-extralight`}
-                        >
+                      <div key={month} className="mb-8">
+                        <h4 className="text-sienna text-xl md:text-2xl font-extralight uppercase">
                           {month}
                         </h4>
                       </div>
                     ))}
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-9">
                   {Object.keys(groupedPosts[year])
-                    .sort((a, b) => moment(b, "MMMM").month() - moment(a, "MMMM").month())
+                    .sort((a, b) => moment(b, "MMM").month() - moment(a, "MMM").month())
                     .map((month) => (
-                      <ul
-                        key={month}
-                        className="list-disc list-inside text-gray-200 text-xl md:text-4xl font-outfit font-thin"
-                      >
-                        {groupedPosts[year][month].map((post) => (
-                          <li className="pb-4 group" key={post.sys.id}>
-                            <Link
-                              href={`/journal/${post.fields.slug}`}
-                              aria-label="Open journal post"
-                              className={`bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna md:text-2xl font-thin`}
-                            >
-                              {post.fields.title}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                      <div key={month} className="mb-8">
+                        <ul className="space-y-4">
+                          {groupedPosts[year][month].map((post) => (
+                            <li key={post.sys.id} className="group">
+                              <Link
+                                href={`/journal/${post.fields.slug}`}
+                                aria-label="Open journal post"
+                                className="inline-block text-gray-200 text-xl md:text-2xl font-thin hover:text-sienna transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-sienna after:origin-right after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
+                              >
+                                {post.fields.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     ))}
                 </div>
               </div>

@@ -62,6 +62,13 @@ export default function Home() {
       <div className="text-[58px] pt-28 md:pt-0 md:text-[130px] lg:text-[250px] font-bold">
         <FlipWords words={words} />
       </div>
+      <div className="overflow-hidden text-center mt-20 md:mt-28 text-gray-200 text-lg md:text-3xl lg:text-4xl font-thin z-20 space-y-2 md:w-full w-[80%]">
+        <h2>
+        Hey there, wanderer 👋
+        </h2>
+        <p>
+        You&apos;ve stumbled on the digital playground of {" "}
+        <span>
         <Link 
         href="/about"
         aria-label="Visit the about page"
@@ -69,9 +76,16 @@ export default function Home() {
           <span
             className={`text-gray-200 text-lg md:text-3xl lg:text-4xl font-thin bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_5px] bg-no-repeat group-hover:bg-[length:0%_5px] transition-all duration-700 ease-out hover:text-sienna`}
           >
-            Wait, who&apos;s Chukwudi Barrah?
+             Chukwudi Barrah
           </span>
         </Link>
+        </span>.
+        </p>
+        <p>
+        Don&apos;t worry; most people can&apos;t pronounce it either.
+        </p>
+        
+      </div>
       <BackgroundBeams />
     </main>
   );

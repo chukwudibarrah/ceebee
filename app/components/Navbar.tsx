@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import {
@@ -33,16 +33,21 @@ export default function Navbar() {
                   width={50}
                   height={50}
                   style={{
-                    width: '100%',
-                    height: 'auto',
+                    width: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
             </div>
             <div>
-              <DrawerTrigger>
-                {isOpen ? <CgClose className="text-white text-4xl hover:text-sienna" /> : <CgMenuRight className="text-white text-4xl hover:text-sienna"  aria-label="Open menu drawer" />}
-              </DrawerTrigger>
+              {isOpen ? (
+                <CgClose className="text-white text-4xl hover:text-sienna" />
+              ) : (
+                <CgMenuRight
+                  className="text-white text-4xl hover:text-sienna"
+                  aria-label="Open menu drawer"
+                />
+              )}
             </div>
           </div>
           <DrawerContent>

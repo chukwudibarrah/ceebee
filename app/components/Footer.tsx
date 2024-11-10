@@ -5,6 +5,10 @@ import { useState } from "react";
 import Link from "next/link";
 import Modal from "./Modal";
 
+// Define reusable motion components
+const MotionHeading = motion.h2 as any;
+const MotionDiv = motion.div as any;
+
 export default function Footer() {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -25,13 +29,13 @@ export default function Footer() {
       </h1>
 
       <div className={`overflow-hidden lg:w-7/12 py-10 tracking-wide`}>
-        <motion.h2
+        <MotionHeading
           animate={{ y: 0 }}
           initial={{ y: "100%" }}
           transition={{ delay: 0.5, duration: 0.5 }}
           className="text-gray-200 md:text-2xl text-xl lg:px-28 md:px-16 px-4 font-thin leading-loose"
         >
-          Ready to start creating an outstanding web presence?
+          Got a project that needs some love? An idea that keeps you up at night? A website that makes people cry (and not in a good way)?
           <br />
           <br />
           <span className={`md:text-6xl text-5xl uppercase font-extrabold`}>
@@ -45,12 +49,12 @@ export default function Footer() {
               this contact form.
             </span>
           </span>
-        </motion.h2>
+        </MotionHeading>
       </div>
 
       <Modal isOpen={modalOpen} onClose={closeModal} />
 
-      <motion.div
+      <MotionDiv
         animate={{ x: 0 }}
         initial={{ x: "100%" }}
         transition={{ delay: 0.75, duration: 0.75 }}
@@ -84,7 +88,7 @@ export default function Footer() {
             ndeewo@chukwudibarrah.com
           </a>
         </div>
-      </motion.div>
+      </MotionDiv>
 
       <div className="flex flex-col lg:px-28 md:px-16 px-4 md:flex-row opacity-100 text-gray-200 font-thin tracking-wider z-20">
         <div className="text-gray-200">
@@ -108,7 +112,7 @@ export default function Footer() {
           </Link>
         </div>
         <div className="text-gray-200">
-          <p className="leading-loose mb-20">Chukwudi Barrah - 2027</p>
+          <p className="leading-loose mb-20">Chukwudi Barrah - 2027. Made with ☕️ and questionable life choices</p>
         </div>
       </div>
     </footer>

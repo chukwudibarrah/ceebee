@@ -11,10 +11,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { slug } = params;
   const article = await getArticle(slug);
-  
+
   if (!article) {
     return {
       title: "Article not found",
@@ -72,7 +73,8 @@ export async function generateMetadata({ params }) {
 
 
 
-const PostPage = ({ params }) => {
+const PostPage = async props => {
+  const params = await props.params;
   const { slug } = params;
 
   return <PostContent slug={slug} />;

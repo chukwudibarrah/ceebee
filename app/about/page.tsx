@@ -1,8 +1,12 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
 
+// Define reusable motion components
+const MotionHeading = motion.h2 as any;
+const MotionParagraph = motion.p as any;
+const MotionDiv = motion.div as any;
 
 export default function About() {
   return (
@@ -15,15 +19,15 @@ export default function About() {
         me
       </h1>
       <div className={`overflow-hidden my-20 space-y-8 z-20`}>
-        <motion.h2
+        <MotionHeading
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 0.3, duration: 0.75 }}
           className={`md:text-7xl text-5xl text-brown md:px-32 px-11 tracking-wide`}
         >
           Who&apos;s Chukwudi Barrah?
-        </motion.h2>
-        <motion.p
+        </MotionHeading>
+        <MotionParagraph
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 0.5, duration: 0.75 }}
@@ -31,34 +35,174 @@ export default function About() {
         >
           <span className="font-thin">noun </span>[
           <span className="italic font-thin">chook-woo-dee</span>]
-        </motion.p>
+        </MotionParagraph>
 
-        <motion.p
+        <MotionParagraph
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 0.7, duration: 0.75 }}
           className="leading-loose text-gray-200 md:text-3xl text-2xl md:px-32 px-11 pt-12 tracking-wide"
         >
-          Amateur everything. But, I&apos;m learning.
-        </motion.p>
+          Professional amateur. Digital tinkerer. Probably caffeinated.
+        </MotionParagraph>
 
-         <motion.p
+        <MotionParagraph
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.1, duration: 0.75 }}
           className="leading-loose text-gray-200 md:text-3xl text-2xl md:px-32 px-11 tracking-wide"
         >
           What I do
-        </motion.p>
+        </MotionParagraph>
 
-        <motion.p
+        <MotionParagraph
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.3, duration: 0.75 }}
           className="leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
         >
-          I do things; primarily online content that includes creating websites
-          like{" "}
+          I make things happen on the internet (lol, it&apos;s my website; I&apos;m allowed to say things). Sometimes they&apos;re good
+          things, like:{" "}
+        </MotionParagraph>
+        <ul className="list-disc list-inside leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light">
+          <li>
+            Creating websites that (hopefully) don&apos;t make your eyes bleed
+            (see{" "}
+            <span>
+              <Link
+                href="https://melanintravelsmagic.com/"
+                aria-label="Visit the Black Gourd Creative Collective website"
+                target="_blank"
+                rel="noopener"
+                className="group text-gray-200 transition-all duration-300 ease-in-out"
+              >
+                <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                  Melanin Travels Magic{" "}
+                </span>
+              </Link>
+            </span>
+            and{" "}
+            <span>
+              <Link
+                href="https://www.blackgourd.com"
+                aria-label="Visit the Black Gourd Creative Collective website"
+                target="_blank"
+                rel="noopener"
+                className="group text-gray-200 transition-all duration-300 ease-in-out"
+              >
+                <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                  Black Gourd
+                </span>
+              </Link>
+            </span>
+            )
+          </li>
+          <li>
+            Talking into microphones (almost) professionally (check the{" "}
+            <span>
+              <Link
+                href="https://open.spotify.com/show/57HkbwEhFc9Dbi2qXZpbk9?si=e32057ed7a3b4065"
+                aria-label="Go to Other Expats podcast on Spotify"
+                target="_blank"
+                rel="noopener"
+                className="group text-gray-200 transition-all duration-300 ease-in-out"
+              >
+                <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                  Other Expats{" "}
+                </span>
+              </Link>
+            </span>
+            and{" "}
+            <span>
+              <Link
+                href="https://open.spotify.com/show/4jliloBWNDps9Acme4TPn3?si=bae0278a032a4a14"
+                aria-label="Go to blackside podcast on Spotify"
+                target="_blank"
+                rel="noopener"
+                className="group text-gray-200 transition-all duration-300 ease-in-out"
+              >
+                <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                  blackside UK
+                </span>
+              </Link>
+            </span>{" "}
+            podcasts)
+          </li>
+          <li>
+            Documenting Black excellence (mostly) on{" "}
+            <span>
+              <Link
+                href="https://blackside.uk/"
+                aria-label="Go to blackside UK podcast on Spotify"
+                target="_blank"
+                rel="noopener"
+                className="group text-gray-200 transition-all duration-300 ease-in-out"
+              >
+                <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                  blackside UK{" "}
+                </span>
+              </Link>
+            </span>
+            and (
+            <span>
+              <Link
+                href="https://otherexpats.com"
+                aria-label="Go to Other Expats podcast on Spotify"
+                target="_blank"
+                rel="noopener"
+                className="group text-gray-200 transition-all duration-300 ease-in-out"
+              >
+                <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                  Other Expats
+                </span>
+              </Link>
+            </span>
+            )
+          </li>
+          <li>Writing words that people (probably don&apos;t) want to read</li>
+        </ul>
+
+        <MotionParagraph
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ delay: 1.3, duration: 0.75 }}
+          className="leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
+        >
+          Want to see the receipts? Check out my{" "}
+          <span>
+            <Link
+              href="journal"
+              aria-label="Navigate to the journal page"
+              rel="noopener"
+              className="group text-gray-200 transition-all duration-300 ease-in-out"
+            >
+              <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                journal
+              </span>
+            </Link>
+          </span>{" "}
+          or browse through my greatest hits in the{" "}
+          <span>
+            <Link
+              href="/projects"
+              aria-label="Navigate to the projects page"
+              rel="noopener"
+              className="group text-gray-200 transition-all duration-300 ease-in-out"
+            >
+              <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                projects
+              </span>
+            </Link>
+          </span>{" "}
+          section.
+        </MotionParagraph>
+
+        {/* <MotionParagraph
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ delay: 1.3, duration: 0.75 }}
+          className="leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
+        >
           <Link
             href="https://www.blackgourd.com"
             aria-label="Visit the Black Gourd Creative Collective website"
@@ -117,40 +261,40 @@ export default function About() {
             </span>{" "}
           </Link>
           .
-        </motion.p>
+        </MotionParagraph> */}
 
-        <motion.p
+        <MotionParagraph
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.5, duration: 0.75 }}
           className="leading-loose text-gray-200 md:text-3xl text-2xl md:px-32 px-11 tracking-wide"
         >
-          Things I like
-        </motion.p>
-        <motion.div
+          Things that make me tick (I rarely tock)
+        </MotionParagraph>
+        <MotionDiv
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.5, duration: 0.75 }}
           className="grid md:grid-cols-2 leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
         >
           <ul className="list-disc list-inside">
-            <li>Listening to recorded words</li>
-            <li>Walking</li>
-            <li>Lists</li>
+            <li>Audiobooks (because reading is hard)</li>
+            <li>Walking (cheaper than therapy)</li>
+            <li>Making lists (you&apos;re reading one now)</li>
           </ul>
           <ul className="list-disc list-inside">
-            <li>Reading words on pages</li>
-            <li>Photography</li>
-            <li>Running</li>
+            <li>Reading (yes, I contradict myself occassionally)</li>
+            <li>Photography (definitely not only my lunch)</li>
+            <li>Running (from responsibilities, obviously)</li>
           </ul>
-        </motion.div>
-        <motion.p
+        </MotionDiv>
+        <MotionParagraph
           animate={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ delay: 1.7, duration: 0.75 }}
           className="leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
         >
-          ps. Send any enquiries to{" "}
+          PS: Want to chat? Send me a message at{" "}
           <span className="group text-gray-200 transition-all duration-300 ease-in-out">
             <span className="">
               <Link
@@ -164,8 +308,8 @@ export default function About() {
               </Link>
             </span>
           </span>{" "}
-          or use the contact form below.
-        </motion.p>
+          or use the fancy contact form below. I promise I read everything. Eventually.
+        </MotionParagraph>
       </div>
     </div>
   );
