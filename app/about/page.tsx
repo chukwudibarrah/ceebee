@@ -35,7 +35,7 @@ export default function About() {
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             transition={{ delay: 0.5, duration: 0.75 }}
-            className="leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide"
+            className="text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide"
           >
             <span className="font-thin">noun </span>[
             <span className="italic font-thin">chook-woo-dee</span>]
@@ -47,14 +47,14 @@ export default function About() {
             transition={{ delay: 0.7, duration: 0.75 }}
             className="text-gray-200 md:text-3xl text-2xl md:px-32 px-11 py-10 pt-12 tracking-wide"
           >
-            Professional amateur. Digital tinkerer. Probably not caffeinated.
+            Professional amateur. Digital tinkerer. Probably not caffeinated enough.
           </MotionHeading3>
 
           <MotionHeading4
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             transition={{ delay: 1.1, duration: 0.75 }}
-            className="leading-loose text-gray-200 md:text-3xl text-2xl md:px-32 px-11 tracking-wide"
+            className="text-gray-200 md:text-3xl text-2xl md:px-32 px-11 tracking-wide"
           >
             What I do
           </MotionHeading4>
@@ -63,13 +63,13 @@ export default function About() {
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             transition={{ delay: 1.3, duration: 0.75 }}
-            className="leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 py-5 tracking-wide font-light"
+            className="text-gray-200 md:text-2xl text-xl md:px-32 px-11 py-5 tracking-wide font-light"
           >
             I make things happen on the internet (lol, it&apos;s my website;
             I&apos;m allowed to say things). Sometimes they&apos;re good things,
             like:{" "}
           </MotionParagraph>
-          <ul className="list-disc list-inside leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light">
+          <ul className="list-disc list-inside text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light">
             <MotionLi
               animate={{ opacity: 1 }}
               initial={{ opacity: 0 }}
@@ -189,7 +189,7 @@ export default function About() {
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             transition={{ delay: 1.3, duration: 0.75 }}
-            className="leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 py-5 tracking-wide font-light"
+            className="text-gray-200 md:text-2xl text-xl md:px-32 px-11 lg:pt-5 pt-10 tracking-wide font-light"
           >
             Receipts? Of course; check out my{" "}
             <span>
@@ -228,7 +228,7 @@ export default function About() {
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             transition={{ delay: 1.5, duration: 0.75 }}
-            className="leading-loose text-gray-200 md:text-3xl text-2xl md:px-32 px-11 pt-5 tracking-wide"
+            className="text-gray-200 md:text-3xl text-2xl md:px-32 px-11 pt-5 tracking-wide"
           >
             Things that make me tick
           </MotionHeading4>
@@ -236,7 +236,7 @@ export default function About() {
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             transition={{ delay: 1.5, duration: 0.75 }}
-            className="grid md:grid-cols-2 leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 py-5 tracking-wide font-light"
+            className="grid md:grid-cols-2 text-gray-200 md:text-2xl text-xl md:px-32 px-11 py-5 tracking-wide font-light"
           >
             <ul className="list-disc list-inside">
               <li>Audiobooks (because reading is hard)</li>
@@ -258,7 +258,7 @@ export default function About() {
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             transition={{ delay: 1.5, duration: 0.75 }}
-            className="leading-loose text-gray-200 md:text-3xl text-2xl md:px-32 px-11 pt-5 tracking-wide"
+            className="text-gray-200 md:text-3xl text-2xl md:px-32 px-11 tracking-wide"
           >
             My digital toolbox (aka tech stack)
           </MotionHeading4>
@@ -266,10 +266,10 @@ export default function About() {
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             transition={{ delay: 1.5, duration: 0.75 }}
-            className="grid md:grid-cols-2 leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 py-5 tracking-wide font-light"
+            className="grid md:grid-cols-2 text-gray-200 md:text-2xl text-xl md:px-32 px-11 py-5 tracking-wide font-light md:space-y-0 space-y-10"
           >
             <div>
-              <h3 className="py-3">
+              <h3 className="py-3 font-semibold">
                 The go-to weapons (it&apos;s all about the front-end)
               </h3>
             <ul className="list-disc list-inside">
@@ -281,7 +281,7 @@ export default function About() {
             </ul>
             </div>
             <div>
-            <h3 className="py-3">
+            <h3 className="py-3 font-semibold">
                 B-team (because sometimes, you need a different hammer)
               </h3>
             <ul className="list-disc list-inside">
@@ -301,7 +301,7 @@ export default function About() {
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             transition={{ delay: 1.7, duration: 0.75 }}
-            className="leading-loose text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
+            className="text-gray-200 md:text-2xl text-xl md:px-32 px-11 tracking-wide font-light"
           >
             PS: This list grows fast so check back next week for whatever new shiny tool catches my eye. <br /> Want to chat? Send me a message at{" "}
             <span className="group text-gray-200 transition-all duration-300 ease-in-out">

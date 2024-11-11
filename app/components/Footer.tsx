@@ -33,7 +33,7 @@ export default function Footer() {
           animate={{ y: 0 }}
           initial={{ y: "100%" }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="text-gray-200 md:text-2xl text-xl lg:px-28 md:px-16 px-4 font-thin leading-loose"
+          className="text-gray-200 md:text-2xl text-xl lg:px-28 md:px-16 px-4 font-thin"
         >
           Got a project that needs some love, an idea that keeps you up at night or a website that makes people cry (and not in a good way)?
           <br />
@@ -90,7 +90,7 @@ export default function Footer() {
         </div>
       </MotionDiv>
 
-      <div className="flex flex-col lg:px-28 md:px-16 px-4 md:flex-row opacity-100 text-gray-200 font-thin tracking-wider z-20">
+      <div className="flex flex-col lg:px-28 md:px-16 px-4 md:flex-row opacity-100 text-gray-200 font-thin tracking-wider z-20 md:space-y-0 space-y-3">
         <div className="text-gray-200">
           <Link
             href="https://github.com/chukwudibarrah/ceebee"
@@ -106,13 +106,13 @@ export default function Footer() {
             href="https://github.com/chukwudibarrah"
             aria-label="Visit my Github profile"
             id="animate"
-            className="z-40 hover:text-sienna leading-loose my-4 md:mx-20"
+            className="z-40 hover:text-sienna my-4 md:mx-20"
           >
             My GitHub
           </Link>
         </div>
         <div className="text-gray-200">
-          <p className="leading-loose mb-20">Chukwudi Barrah - 2027. Made with ☕️ and questionable life choices</p>
+          <p className="mb-20">Chukwudi Barrah - 2027. Made with ☕️ and questionable life choices</p>
         </div>
       </div>
     </footer>
