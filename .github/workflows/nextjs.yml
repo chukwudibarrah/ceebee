@@ -56,7 +56,7 @@ jobs:
           NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN }}
           NEXT_PUBLIC_CONTENTFUL_MANAGEMENT_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_MANAGEMENT_TOKEN }}
           NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN }}
-         MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
