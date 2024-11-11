@@ -82,9 +82,9 @@ export default function FetchProjects() {
   return (
     <div className="w-screen min-h-screen pb-32 md:px-32 px-11 z-10">
       <div className="text-gray-200 font-thin">
-        <p className={`text-lg`}>Filter projects</p>
+        <p className={`text-lg`}>Filter by flavour</p>
         <div className={`hidden max-w-full pt-10 pb-24 md:flex space-x-2 md:space-x-7 lg:space-x-12`}>
-          {["All", "Editing and copywriting", "Podcasting", "Web development", "Web editing"].map((category) => (
+          {["All the things", "Words I've fixed", "Podcasts", "Web suff", "Web I've saved"].map((category) => (
             <button 
             key={category} 
             type="button"

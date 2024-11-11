@@ -62,7 +62,7 @@ export default function Home() {
       <div className="text-[58px] pt-28 md:pt-0 md:text-[130px] lg:text-[250px] font-bold">
         <FlipWords words={words} />
       </div>
-      <div className="overflow-hidden text-center mt-20 md:mt-28 text-gray-200 text-lg md:text-3xl lg:text-4xl font-thin z-20 space-y-2 md:w-full w-[80%]">
+      <div className="overflow-hidden text-center mt-20 md:mt-28 text-gray-200 text-lg md:text-3xl lg:text-4xl font-thin z-20 space-y-2 md:w-full w-[70%]">
         <h2>
         Hey there, wanderer 👋
         </h2>

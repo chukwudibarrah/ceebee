@@ -1,4 +1,4 @@
-// app/projects/page.tsx
+import { motion } from "framer-motion";
 import FetchProjects from "../components/FetchProjects";
 
 export default function Projects() {
@@ -11,9 +11,12 @@ export default function Projects() {
       </h1>
       <div className="md:px-32 px-11 py-20 z-10 w-full">
         <div className="w-full">
-          <h2 className="text-5xl text-brown text-left lg:w-[45%]">
-            A selection of past and ongoing projects
+          <h2 className="md:text-7xl text-5xl text-brown tracking-wide">
+            The evidence locker
           </h2>
+          <p className="leading-loose text-gray-200 md:text-3xl text-2xl pt-12 tracking-wide">
+          Here&apos;s proof that I (occasionally) do things
+          </p>
         </div>
       </div>
       <FetchProjects />
