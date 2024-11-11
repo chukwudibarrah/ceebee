@@ -35,7 +35,7 @@ export default function Footer() {
           transition={{ delay: 0.5, duration: 0.5 }}
           className="text-gray-200 md:text-2xl text-xl lg:px-28 md:px-16 px-4 font-thin leading-loose"
         >
-          Got a project that needs some love? An idea that keeps you up at night? A website that makes people cry (and not in a good way)?
+          Got a project that needs some love, an idea that keeps you up at night or a website that makes people cry (and not in a good way)?
           <br />
           <br />
           <span className={`md:text-6xl text-5xl uppercase font-extrabold`}>
