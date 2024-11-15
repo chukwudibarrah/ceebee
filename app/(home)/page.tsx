@@ -67,7 +67,7 @@ export default function Home() {
         Hey there, wanderer 👋
         </h2>
         <p>
-        You&apos;ve stumbled on the digital playground of {" "}
+        You&apos;ve stumbled (lol &quot;stumbled&quot; wink wink) on the digital playground of {" "}
         <span>
         <Link 
         href="/about"

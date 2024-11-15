@@ -146,7 +146,7 @@ export default function About() {
               initial={{ opacity: 0 }}
               transition={{ delay: 1.3, duration: 0.75 }}
             >
-              Documenting Black excellence (mostly) on{" "}
+              Documenting Black excellence and mediocrity on{" "}
               <span>
                 <Link
                   href="https://blackside.uk/"
