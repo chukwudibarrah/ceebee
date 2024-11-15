@@ -9,7 +9,7 @@ export default function Projects() {
         <br />
         jects
       </h1>
-      <div className="md:px-32 px-11 py-20 z-10 w-full">
+      <div className="px-4 md:px-8 py-20 z-10 w-full">
         <div className="w-full">
           <h2 className="md:text-7xl text-5xl text-brown tracking-wide">
             The evidence locker
