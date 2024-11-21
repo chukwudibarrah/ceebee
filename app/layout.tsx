@@ -77,47 +77,47 @@ export const metadata: Metadata = {
 //   },
 // };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  mainEntity: {
-    "@type": "Person",
-    name: "Chukwudi Barrah",
-    givenName: "Chukwudi",
-    familyName: "Barrah",
-    jobTitle: "Web Editor",
-    image:
-      "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
-    url: "https://chukwudibarrah.com",
-    worksFor: {
-      "@type": "Organization",
-      name: "British Psychological Society",
-      url: "https://bps.org.uk/",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Leicester",
-        addressRegion: "England",
-        postalCode: "LE1 7DR",
-        streetAddress: "St Andrews House,",
-        addressCountry: "UK",
-      },
-    },
-    gender: "male",
-    alumniOf: [
-      {
-        "@type": "CollegeOrUniversity",
-        name: "Sheffield Hallam University",
-      },
-    ],
-    sameAs: [
-      "https://medium.com/@chukwudibarrah",
-      "https://www.linkedin.com/in/cbarrah",
-      "https://github.com/chukwudibarrah",
-      "https://www.instagram.com/dude.with.a.camera/",
-      "https://www.facebook.com/thechukwudibarrah",
-    ],
-  },
-};
+// const jsonLd = {
+//   "@context": "https://schema.org",
+//   "@type": "ProfilePage",
+//   mainEntity: {
+//     "@type": "Person",
+//     name: "Chukwudi Barrah",
+//     givenName: "Chukwudi",
+//     familyName: "Barrah",
+//     jobTitle: "Web Editor",
+//     image:
+//       "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
+//     url: "https://chukwudibarrah.com",
+//     worksFor: {
+//       "@type": "Organization",
+//       name: "British Psychological Society",
+//       url: "https://bps.org.uk/",
+//       address: {
+//         "@type": "PostalAddress",
+//         addressLocality: "Leicester",
+//         addressRegion: "England",
+//         postalCode: "LE1 7DR",
+//         streetAddress: "St Andrews House,",
+//         addressCountry: "UK",
+//       },
+//     },
+//     gender: "male",
+//     alumniOf: [
+//       {
+//         "@type": "CollegeOrUniversity",
+//         name: "Sheffield Hallam University",
+//       },
+//     ],
+//     sameAs: [
+//       "https://medium.com/@chukwudibarrah",
+//       "https://www.linkedin.com/in/cbarrah",
+//       "https://github.com/chukwudibarrah",
+//       "https://www.instagram.com/dude.with.a.camera/",
+//       "https://www.facebook.com/thechukwudibarrah",
+//     ],
+//   },
+// };
 
 export default function RootLayout({
   children,
@@ -129,10 +129,10 @@ export default function RootLayout({
       <GoogleTagManager gtmId="G-141ZFEMEVE" />
       <GoogleAnalytics gaId="G-141ZFEMEVE" />
       <body className={worksans.className}>
-        <script
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        /> */}
         <GoogleAnalyticsTracking />
         <Navbar />
         {children}
