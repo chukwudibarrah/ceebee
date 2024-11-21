@@ -9,9 +9,9 @@ export default function Projects() {
         <br />
         jects
       </h1>
-      <div className="px-4 md:px-8 py-20 z-10 w-full">
+      <div className="lg:px-28 md:px-16 px-4 py-20 z-10 w-full">
         <div className="w-full">
-          <h2 className="md:text-7xl text-5xl text-brown tracking-wide">
+          <h2 className="md:text-7xl text-5xl text-gray-200 tracking-wide">
             The evidence locker
           </h2>
           <p className="text-gray-200 md:text-3xl text-2xl pt-12 tracking-wide">

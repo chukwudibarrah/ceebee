@@ -59,13 +59,13 @@ export default function Journal() {
         <br />
         nal
       </h1>
-      <div className="relative max-w-6xl mx-auto py-32 px-4 md:px-8 z-10">
+      <div className="relative max-w-6xl py-32 lg:px-28 md:px-16 px-4 z-10">
         {Object.keys(groupedPosts)
           .map(Number)
           .sort((a, b) => b - a)
           .map((year) => (
             <div key={year} className="mb-16">
-              <div className="text-sienna font-thin text-sm md:text-base uppercase mb-8">
+              <div className="text-gray-200 font-thin text-sm md:text-base uppercase mb-8">
                 {year}
               </div>
               <div className="grid grid-cols-12 gap-4">
