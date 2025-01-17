@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { LinkPreview } from "@/components/ui/link-preview";
 
 // Define reusable motion components
 const MotionHeading2 = motion.h2 as any;
@@ -78,31 +79,27 @@ export default function About() {
               Creating websites that (hopefully) don&apos;t make your eyes bleed
               (see{" "}
               <span>
-                <Link
-                  href="https://melanintravelsmagic.com/"
+                <LinkPreview
+                  url="https://melanintravelsmagic.com/"
                   aria-label="Visit the Black Gourd Creative Collective website"
-                  target="_blank"
-                  rel="noopener"
                   className="group text-gray-200 transition-all duration-300 ease-in-out"
                 >
                   <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                     Melanin Travels Magic{" "}
                   </span>
-                </Link>
+                </LinkPreview>
               </span>
               and{" "}
               <span>
-                <Link
-                  href="https://www.blackgourd.com"
+                <LinkPreview
+                  url="https://www.blackgourd.com"
                   aria-label="Visit the Black Gourd Creative Collective website"
-                  target="_blank"
-                  rel="noopener"
                   className="group text-gray-200 transition-all duration-300 ease-in-out"
                 >
                   <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                     Black Gourd
                   </span>
-                </Link>
+                </LinkPreview>
               </span>
               )
             </MotionLi>
@@ -113,31 +110,27 @@ export default function About() {
             >
               Talking into microphones (almost) professionally (check the{" "}
               <span>
-                <Link
-                  href="https://open.spotify.com/show/57HkbwEhFc9Dbi2qXZpbk9?si=e32057ed7a3b4065"
+                <LinkPreview
+                  url="https://open.spotify.com/show/57HkbwEhFc9Dbi2qXZpbk9?si=e32057ed7a3b4065"
                   aria-label="Go to Other Expats podcast on Spotify"
-                  target="_blank"
-                  rel="noopener"
                   className="group text-gray-200 transition-all duration-300 ease-in-out"
                 >
                   <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                     Other Expats{" "}
                   </span>
-                </Link>
+                </LinkPreview>
               </span>
               and{" "}
               <span>
-                <Link
-                  href="https://open.spotify.com/show/4jliloBWNDps9Acme4TPn3?si=bae0278a032a4a14"
+                <LinkPreview
+                  url="https://open.spotify.com/show/4jliloBWNDps9Acme4TPn3?si=bae0278a032a4a14"
                   aria-label="Go to blackside podcast on Spotify"
-                  target="_blank"
-                  rel="noopener"
                   className="group text-gray-200 transition-all duration-300 ease-in-out"
                 >
                   <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                     blackside UK
                   </span>
-                </Link>
+                </LinkPreview>
               </span>{" "}
               podcasts)
             </MotionLi>
@@ -148,31 +141,27 @@ export default function About() {
             >
               Documenting Black excellence and mediocrity on{" "}
               <span>
-                <Link
-                  href="https://blackside.uk/"
+                <LinkPreview
+                  url="https://blackside.uk/"
                   aria-label="Go to blackside UK podcast on Spotify"
-                  target="_blank"
-                  rel="noopener"
                   className="group text-gray-200 transition-all duration-300 ease-in-out"
                 >
                   <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                     blackside UK{" "}
                   </span>
-                </Link>
+                </LinkPreview>
               </span>
               and (
               <span>
-                <Link
-                  href="https://otherexpats.com"
+                <LinkPreview
+                  url="https://otherexpats.com"
                   aria-label="Go to Other Expats podcast on Spotify"
-                  target="_blank"
-                  rel="noopener"
                   className="group text-gray-200 transition-all duration-300 ease-in-out"
                 >
                   <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                     Other Expats
                   </span>
-                </Link>
+                </LinkPreview>
               </span>
               )
             </MotionLi>
@@ -241,11 +230,11 @@ export default function About() {
             <ul className="list-disc list-inside">
               <li>Audiobooks (because reading is hard)</li>
               <li>Walking (cheaper than therapy)</li>
-              <li>Making lists (you&apos;re reading one now)</li>
+              <li>Making lists</li>
             </ul>
             <ul className="list-disc list-inside">
               <li>Reading (yes, I contradict myself occassionally)</li>
-              <li>Photography (definitely not only my lunch)</li>
+              <li>Photography</li>
               <li>Running (from responsibilities, obviously)</li>
             </ul>
           </MotionDiv>
@@ -270,25 +259,25 @@ export default function About() {
           >
             <div>
               <h3 className="py-3 font-semibold">
-                The go-to weapons (it&apos;s all about the front-end)
+                The go-to weapons
               </h3>
             <ul className="list-disc list-inside">
-              <li>React (for when vanilla JS just won&apos;t cut it)</li>
-              <li>NextJS (because nobody likes slow websites)</li>
-              <li>Node (server-side shenanigans)</li>
-              <li>TailwindCSS (making things pretty, efficiently)</li>
-              <li>MongoDB (where I keep all the secrets)</li>
+              <li>React</li>
+              <li>NextJS</li>
+              <li>Node</li>
+              <li>TailwindCSS</li>
+              <li>MongoDB</li>
             </ul>
             </div>
             <div>
             <h3 className="py-3 font-semibold">
-                B-team (because sometimes, you need a different hammer)
+                B-team
               </h3>
             <ul className="list-disc list-inside">
-              <li>WordPress (60% of the web can&apos;t be wrong... right?)</li>
-              <li>Wix (when clients insist on dragging and dropping)</li>
-              <li>Contentful (headless CMS for the win)</li>
-              <li>Drupal (for when WordPress isn&apos;t complicated enough)</li>
+              <li>WordPress</li>
+              <li>Wix</li>
+              <li>Contentful</li>
+              <li>Sanity</li>
             </ul>
             </div>
           </MotionDiv>

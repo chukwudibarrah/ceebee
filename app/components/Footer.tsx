@@ -112,7 +112,7 @@ export default function Footer() {
           </Link>
         </div>
         <div className="text-gray-200">
-          <p className="mb-20">Chukwudi Barrah - 2027. Made with ☕️ and questionable life choices</p>
+          <p className="mb-20">Chukwudi Barrah - 2027. Made with Nextjs, ☕️ and questionable life choices</p>
         </div>
       </div>
     </footer>

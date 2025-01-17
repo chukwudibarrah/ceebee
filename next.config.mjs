@@ -9,6 +9,7 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
+    domains: ["api.microlink.io"],
   },
   async headers() {
     return [
@@ -30,7 +31,7 @@ const nextConfig = {
   webpack: (config, { isServer }) => {
     if (isServer) {
       (async () => {
-        await import('./scripts/generate-sitemap.mjs');
+        await import("./scripts/generate-sitemap.mjs");
       })();
     }
 
@@ -40,25 +41,25 @@ const nextConfig = {
     turbo: {
       // Configure Turbopack options here
       rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
+        "*.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
         },
       },
       resolveAlias: {
-        underscore: 'lodash',
-        mocha: { browser: 'mocha/browser-entry.js' },
+        underscore: "lodash",
+        mocha: { browser: "mocha/browser-entry.js" },
       },
       resolveExtensions: [
-        '.mdx',
-        '.tsx',
-        '.ts',
-        '.jsx',
-        '.js',
-        '.mjs',
-        '.json',
+        ".mdx",
+        ".tsx",
+        ".ts",
+        ".jsx",
+        ".js",
+        ".mjs",
+        ".json",
       ],
-      moduleIdStrategy: 'deterministic',
+      moduleIdStrategy: "deterministic",
     },
   },
 };
