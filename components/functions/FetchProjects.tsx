@@ -29,16 +29,15 @@ export default function FetchProjects() {
         }
         const result: Project[] = await response.json();
         
-        // Assuming your API response structure is like { "projects": [...] }
         if (result && result.length > 0) {
-          setAllProjects(result); // Assuming result is the array of projects
+          setAllProjects(result); 
         } else {
           throw new Error('Empty or invalid response from API');
         }
       } catch (error) {
         console.error("Error fetching all projects:", error);
       } finally {
-        setLoading(false); // Ensure loading state is updated even on error
+        setLoading(false);
       }
     };
 
@@ -80,9 +79,9 @@ export default function FetchProjects() {
   }
 
   return (
-    <div className="w-screen min-h-screen pb-32 md:px-32 px-11 z-10">
+    <div className="w-screen min-h-screen pb-32 z-10 md:text-2xl text-xl lg:px-28 md:px-16 px-4">
       <div className="text-gray-200 font-thin">
-        <p className={`text-lg`}>Filter projects</p>
+        <p>Filter by flavour</p>
         <div className={`hidden max-w-full pt-10 pb-24 md:flex space-x-2 md:space-x-7 lg:space-x-12`}>
           {["All", "Editing and copywriting", "Podcasting", "Web development", "Web editing"].map((category) => (
             <button 
@@ -108,7 +107,7 @@ export default function FetchProjects() {
       </div>
       {displayedProjects.map((project, index) => (
         <div key={index}>
-          <ul className="list-disc list-inside text-gray-200 text-2xl md:text-3xl font-thin">
+          <ul className="list-disc list-inside text-gray-200 md:text-2xl text-xl font-thin">
             <li className="group">
               <Link 
               href={project.url} 
@@ -129,7 +128,7 @@ export default function FetchProjects() {
           aria-label="Load more projects"
           onClick={loadMoreProjects} 
           className="text-xl md:text-2xl text-gray-200 bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_8px] bg-no-repeat group-hover:bg-[length:0%_8px] transition-all duration-700 ease-out hover:text-sienna">
-            Load more...
+            Show me more...
           </button>
         </div>
       )}

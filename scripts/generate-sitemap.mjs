@@ -1,32 +1,36 @@
+// scripts/generate-sitemap.mjs
+
 import { promises as fs } from 'fs';
 import { globby } from 'globby';
-import pkg from 'contentful';
-
-const { createClient } = pkg;
+import { createClient } from '@sanity/client';
 
 async function generateSiteMap() {
   const pages = await globby([
     "pages/**/*.tsx",
+    "app/**/*.tsx",
+    "!app/**/_*.tsx",
+    "!app/**/components/**",
+    "!app/**/layout.tsx",
+    "!app/**/[slug]/page.tsx",
+    "!app/api/**",
     "!pages/_*.tsx",
     "!pages/**/[slug].tsx",
-    "!pages/api",
+    "!pages/api/**",
   ]);
 
+  // Initialize Sanity client
   const client = createClient({
-    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+    apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2025-03-10',
+    useCdn: process.env.NODE_ENV === 'production',
   });
 
   const currentDate = new Date().toISOString();
 
-  const journalPosts = await client
-    .getEntries({ content_type: "journal", order: "sys.createdAt" })
-    .then((response) => {
-      const posts = generateJournalPosts(response.items);
-      return posts;
-    });
-
-  const notePaths = journalPosts.map(({ fields: { slug } }) => slug);
+  // Query Sanity for journal posts
+  const journalPosts = await fetchJournalPosts(client);
+  const postSlugs = journalPosts.map(post => post.slug.current);
 
   // Static pages to include
   const staticPages = [
@@ -51,10 +55,18 @@ async function generateSiteMap() {
   ${pages.map((page) => {
     const path = page
       .replace("pages", "")
+      .replace("app", "")
+      .replace("/page", "")
       .replace(".js", "")
       .replace(".tsx", "")
       .replace(".md", "");
     const route = path === "/index" ? "" : path;
+    
+    // Skip dynamic routes and special files
+    if (route.includes('[') || route.includes('_')) {
+      return '';
+    }
+    
     return `
     <url>
       <loc>${`https://chukwudibarrah.com${route}`}</loc>
@@ -63,10 +75,10 @@ async function generateSiteMap() {
       <priority>1.0</priority>
     </url>`;
   }).join("")}
-  ${notePaths.map((route) => {
+  ${postSlugs.map((slug) => {
     return `
     <url>
-      <loc>${`https://chukwudibarrah.com/notes/${route}`}</loc>
+      <loc>${`https://chukwudibarrah.com/journal/${slug}`}</loc>
       <lastmod>${currentDate}</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
@@ -75,17 +87,25 @@ async function generateSiteMap() {
 </urlset>`;
 
   await fs.writeFile("public/sitemap.xml", sitemap.trim());
+  console.log('Sitemap generated successfully!');
 }
 
-// Custom utility function to extract journal posts
-function generateJournalPosts(items) {
-  return items.map(item => {
-    return {
-      fields: {
-        slug: item.fields.slug,
-      }
-    };
-  });
+// Function to fetch journal posts from Sanity
+async function fetchJournalPosts(client) {
+  try {
+    // GROQ query to get all published journal posts with their slugs
+    const query = `*[_type == "journal" && defined(slug.current)] {
+      slug,
+      _updatedAt
+    }`;
+    
+    const posts = await client.fetch(query);
+    return posts;
+  } catch (error) {
+    console.error('Error fetching posts from Sanity:', error);
+    return [];
+  }
 }
 
+// Execute the function
 generateSiteMap();

@@ -1,13 +1,15 @@
+// /app/layout.tsx
+
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/toaster";
-import { worksans } from "@/styles/fonts";
+import { worksans, outfit, lato, zilla } from "@/styles/fonts";
 import "./globals.css";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import { GoogleAnalyticsTracking } from "./components/GoogleAnalytics";
+import Footer from "@/components/nav/Footer";
+import Navbar from "@/components/nav/Navbar";
+import { GoogleAnalyticsTracking } from "@/components/functions/GoogleAnalytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://chukwudibarrah.com"),
@@ -43,82 +45,6 @@ export const metadata: Metadata = {
   },
 };
 
-// const jsonLd = {
-//   "@context": "https://schema.org",
-//   "@type": "WebSite",
-//   url: "https://chukwudibarrah.com",
-//   image:
-//     "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
-//   about: {
-//     "@type": "Person",
-//     "@id": "https://chukwudibarrah.com",
-//     name: "Chukwudi Barrah",
-//     jobTitle: "Web editor, front-end web developer and copywriter",
-//     image:
-//       "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
-//     description:
-//       "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
-//     sameAs: [
-//       "https://medium.com/@chukwudibarrah",
-//       "https://www.linkedin.com/in/cbarrah",
-//       "https://github.com/chukwudibarrah",
-//       "https://www.instagram.com/dude.with.a.camera/",
-//       "https://www.facebook.com/thechukwudibarrah",
-//     ],
-//     homeLocation: {
-//       "@type": "Place",
-//       "name": "United Kingdom",
-//       "geo": {
-//         "@type": "GeoCoordinates",
-//         "latitude": "53.2913072",
-//         "longitude": "-1.3309752",
-//       }
-//     }
-//   },
-// };
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  mainEntity: {
-    "@type": "Person",
-    name: "Chukwudi Barrah",
-    givenName: "Chukwudi",
-    familyName: "Barrah",
-    jobTitle: "Web Editor",
-    image:
-      "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
-    url: "https://chukwudibarrah.com",
-    worksFor: {
-      "@type": "Organization",
-      name: "British Psychological Society",
-      url: "https://bps.org.uk/",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Leicester",
-        addressRegion: "England",
-        postalCode: "LE1 7DR",
-        streetAddress: "St Andrews House,",
-        addressCountry: "UK",
-      },
-    },
-    gender: "male",
-    alumniOf: [
-      {
-        "@type": "CollegeOrUniversity",
-        name: "Sheffield Hallam University",
-      },
-    ],
-    sameAs: [
-      "https://medium.com/@chukwudibarrah",
-      "https://www.linkedin.com/in/cbarrah",
-      "https://github.com/chukwudibarrah",
-      "https://www.instagram.com/dude.with.a.camera/",
-      "https://www.facebook.com/thechukwudibarrah",
-    ],
-  },
-};
-
 export default function RootLayout({
   children,
 }: {
@@ -129,16 +55,12 @@ export default function RootLayout({
       <GoogleTagManager gtmId="G-141ZFEMEVE" />
       <GoogleAnalytics gaId="G-141ZFEMEVE" />
       <body className={worksans.className}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
         <GoogleAnalyticsTracking />
-        <Navbar />
-        {children}
-        <Analytics />
-        <Toaster />
-        <Footer />
+          <Navbar />
+          {children}
+          <Analytics />
+          <Toaster />
+          <Footer />
       </body>
     </html>
   );

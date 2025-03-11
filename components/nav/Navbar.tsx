@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import {
@@ -17,14 +17,14 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative w-screen z-30 bg-neutral-950 pt-8 ">
+    <div className="relative w-screen z-30 pt-8 ">
       <DrawerRoot
         direction="right"
         noBodyStyles={true}
         onOpenChange={(open) => setIsOpen(open)}
       >
         <DrawerTrigger className="w-screen">
-          <div className="min-w-full flex border-none border-neutral-950 justify-between lg:px-28 md:px-16 px-4">
+          <div className="min-w-full flex border-none justify-between lg:px-28 md:px-16 px-4">
             <div>
               <Link href="/" aria-label="Navigate to the home page">
                 <Image
@@ -33,16 +33,21 @@ export default function Navbar() {
                   width={50}
                   height={50}
                   style={{
-                    width: '100%',
-                    height: 'auto',
+                    width: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
             </div>
             <div>
-              <DrawerTrigger>
-                {isOpen ? <CgClose className="text-white text-4xl hover:text-sienna" /> : <CgMenuRight className="text-white text-4xl hover:text-sienna"  aria-label="Open menu drawer" />}
-              </DrawerTrigger>
+              {isOpen ? (
+                <CgClose className="text-white text-4xl hover:text-sienna" />
+              ) : (
+                <CgMenuRight
+                  className="text-white text-4xl hover:text-sienna"
+                  aria-label="Open menu drawer"
+                />
+              )}
             </div>
           </div>
           <DrawerContent>

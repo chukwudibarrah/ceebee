@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+import typography from "@tailwindcss/typography";
 
 const svgToDataUri = require("mini-svg-data-uri");
 
@@ -89,6 +90,7 @@ const config = {
     },
   },
   plugins: [
+    typography,
     addVariablesForColors,
     require("tailwindcss-animate"),
     function ({ matchUtilities, theme }: any) {

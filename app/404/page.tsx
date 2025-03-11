@@ -28,7 +28,7 @@ export const metadata = {
 
 export default function ErrorPage() {
   return (
-    <div className="flex flex-col w-screen h-screen justify-center items-center text-center space-y-16 bg-neutral-950">
+    <div className="flex flex-col w-screen h-screen justify-center items-center text-center space-y-16">
       <h1 className="text-gray-200 text-9xl font-bold">Uh ohh...</h1>
       <p className="text-gray-200 text-6xl">
         Looks like I removed that content
