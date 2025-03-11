@@ -143,11 +143,12 @@ export default async function JournalPost({
           </div>
         )}
 
-        <div className="flex flex-col lg:flex-row lg:gap-16 lg:px-28 md:px-16 px-4 my-16">
-          <div className="font-thin">
+        <div className="grid lg:grid-cols-3 lg:gap-16 lg:px-28 md:px-16 px-4 my-16">
+          <div className="lg:col-span-2 font-thin">
             <PortableText value={article.content} components={ptComponents} />
-            <hr className="my-16 border-neutral-800" />
+            <hr className="my-16 border-neutral-800 block lg:hidden" />
           </div>
+          
 
           {/* Random Articles Section */}
           {randomPosts.length > 0 && (
@@ -189,6 +190,9 @@ export default async function JournalPost({
               </div>
             </div>
           )}
+        </div>
+        <div className="lg:px-28 md:px-16 px-4 my-16 hidden lg:block">
+        <hr className="border-neutral-800" />
         </div>
       </article>
     );
