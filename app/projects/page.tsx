@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import FetchProjects from "../components/FetchProjects";
+import FetchProjects from "@/components/functions/FetchProjects";
 
 export default function Projects() {
   return (

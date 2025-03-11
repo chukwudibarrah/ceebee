@@ -36,13 +36,13 @@ export default function Menu() {
         </Link>
         <Link
           className={`link ${
-            pathname === "/journal" ? "active" : ""
+            pathname === "/journals" ? "active" : ""
           }`}
-          href="/journal"
+          href="/journals"
           aria-label="Go to the journal page"
         >
           <DrawerClose asChild>
-            <button className="text-gray-200 hover:text-sienna">Journal</button>
+            <button className="text-gray-200 hover:text-sienna">Journals</button>
           </DrawerClose>
         </Link>
       </div>

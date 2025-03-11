@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
-import Modal from "./Modal";
+import Modal from "../functions/Modal";
 
 // Define reusable motion components
 const MotionHeading = motion.h2 as any;
