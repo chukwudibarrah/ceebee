@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
-import Modal from "./Modal";
+import Modal from "../functions/Modal";
 
 // Define reusable motion components
 const MotionHeading = motion.h2 as any;
@@ -81,11 +81,11 @@ export default function Footer() {
             Email
           </h3>
           <a
-            href="mailto:ndeewo@chukwudibarrah.com"
+            href="mailto:hello@chukwudibarrah.com"
             id="animate"
             className="font-thin text-xl select-none hover:text-sienna"
           >
-            ndeewo@chukwudibarrah.com
+            hello@chukwudibarrah.com
           </a>
         </div>
       </MotionDiv>

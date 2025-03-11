@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/mongodb-adapter": "^3.8.0",
     "@contentful/rich-text-react-renderer": "^15.22.11",
     "@contentful/rich-text-types": "^16.8.5",
     "@emailjs/browser": "^4.3.3",
@@ -16,6 +17,11 @@
     "@radix-ui/react-hover-card": "^1.1.6",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.6",
+    "@sanity/client": "^6.28.3",
+    "@sanity/icons": "^3.7.0",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/ui": "^2.15.2",
+    "@sanity/vision": "^3.78.1",
     "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -31,18 +37,24 @@
     "mongodb": "^6.14.2",
     "mongoose": "^8.12.1",
     "next": "^15.2.1",
+    "next-auth": "^4.24.11",
+    "next-sanity": "^9.9.0",
+    "nodemailer": "^6.10.0",
     "pg": "^8.13.3",
     "qss": "^3.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
     "react-router-dom": "^6.30.0",
+    "sanity": "^3.78.1",
     "schema-dts": "^1.1.5",
+    "styled-components": "^6.1.15",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.9"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20.17.24",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
@@ -50,7 +62,7 @@
     "eslint-config-next": "^15.2.1",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.15",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   },
   "overrides": {
     "@types/react": "npm:types-react@19.0.0-rc.1",
