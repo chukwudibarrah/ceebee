@@ -28,7 +28,7 @@ export async function generateMetadata({
     };
   }
 
-  const imageUrl = urlFor(post.image).url()
+  const imageUrl = urlFor(post.image).url();
 
   return {
     title: `${post.title} - Chukwudi Barrah`,
@@ -83,16 +83,16 @@ export async function generateMetadata({
       canonical: `https://chukwudibarrah.com/journals/${post.slug.current}`,
     },
   };
-} 
+}
 
 // ******************
-// Journal 
+// Journal
 // ******************
 
 export default async function JournalPost({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   // Now we can directly use params.slug (no Promise handling needed in server components)
   const { slug } = await params;
@@ -144,7 +144,6 @@ export default async function JournalPost({
         )}
 
         <div className="flex flex-col lg:flex-row lg:gap-16 lg:px-28 md:px-16 px-4 my-16">
-
           <div className="font-thin">
             <PortableText value={article.content} components={ptComponents} />
             <hr className="my-16 border-neutral-800" />
