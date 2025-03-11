@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://chukwudibarrah.com'),
   alternates: {
-    canonical: '/about',
+    canonical: 'https://chukwudibarrah.com/about',
   },
   title: "About | Chukwudi Barrah",
   description:

@@ -74,7 +74,7 @@ const PostContent = ({ slug }: { slug: string }) => {
   }
 
   return (
-    <article className="min-w-screen overflow-hidden bg-neutral-950">
+    <article className="min-w-screen overflow-hidden">
       <div className="lg:px-28 md:px-16 px-4 my-10">
         <div className="text-sienna text-sm uppercase tracking-wider mb-2">
           {article.category}

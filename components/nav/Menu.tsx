@@ -18,7 +18,7 @@ export default function Menu() {
           aria-label="Go to the about page"
         >
           <DrawerClose asChild>
-            <button className="text-gray-200 hover:text-sienna">About</button>
+            <button className="text-gray-200 hover:text-sienna hover:translate-x-4 ease-in-out duration-300">About</button>
           </DrawerClose>
         </Link>
         <Link
@@ -29,7 +29,7 @@ export default function Menu() {
           aria-label="Go to the projects page"
         >
           <DrawerClose asChild>
-            <button className="text-gray-200 hover:text-sienna">
+            <button className="text-gray-200 hover:text-sienna hover:translate-x-4 ease-in-out duration-300">
               Projects
             </button>
           </DrawerClose>
@@ -42,7 +42,7 @@ export default function Menu() {
           aria-label="Go to the journal page"
         >
           <DrawerClose asChild>
-            <button className="text-gray-200 hover:text-sienna">Journals</button>
+            <button className="text-gray-200 hover:text-sienna hover:translate-x-4 ease-in-out duration-300">Journals</button>
           </DrawerClose>
         </Link>
       </div>

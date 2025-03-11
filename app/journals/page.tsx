@@ -8,7 +8,7 @@ import moment from "moment";
 import { getGroupedArticlesByYear, getCategories } from "@/lib/api";
 import LoadingAnimation from "@/components/functions/LoadingAnimation";
 
-export default function Journals() {
+export default function Projects() {
   const [groupedPosts, setGroupedPosts] = useState({});
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -62,9 +62,9 @@ export default function Journals() {
     : groupedPosts;
 
   return (
-    <div className="min-h-screen w-full bg-neutral-950">
+    <div className="min-h-screen w-full">
       <h1
-        className="fixed left-1/2 top-32 -translate-x-1/2 -z-0 text-[200px] leading-[150px] md:text-[400px] md:leading-[300px] opacity-5 text-gray-200/40 font-extrabold text-center whitespace-nowrap"
+        className="fixed left-1/2 top-32 -translate-x-1/2 -z-0 text-[200px] leading-[150px] md:text-[400px] md:leading-[300px] opacity-5 text-gray-200/40 font-extrabold whitespace-nowrap"
       >
         jour
         <br />
@@ -105,7 +105,7 @@ export default function Journals() {
             .sort((a, b) => b - a)
             .map((year) => (
               <div key={year} className="mb-16">
-                <div className="text-gray-200 font-thin text-sm md:text-base uppercase mb-8">
+                <div className="text-gray-200 font-medium text-sm md:text-base uppercase mb-8">
                   {year}
                 </div>
                 <div className="grid grid-cols-12 gap-4">
@@ -114,7 +114,7 @@ export default function Journals() {
                       .sort((a, b) => moment(b, "MMM").month() - moment(a, "MMM").month())
                       .map((month) => (
                         <div key={month} className="mb-8">
-                          <h4 className="text-sienna text-xl md:text-2xl font-extralight uppercase">
+                          <h4 className="text-persian text-xl md:text-2xl font-extralight uppercase">
                             {month}
                           </h4>
                         </div>
@@ -134,7 +134,7 @@ export default function Journals() {
                                   className="inline-block text-gray-200 text-xl md:text-2xl font-thin hover:text-sienna transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-sienna after:origin-right after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
                                 >
                                   {post.title}
-                                  <span className="ml-3 text-sm text-gray-400">{post.category}</span>
+                                  <span className="ml-3 text-sm text-persian">{post.category}</span>
                                 </Link>
                               </li>
                             ))}

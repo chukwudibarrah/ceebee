@@ -1,14 +1,15 @@
+// /app/layout.tsx
+
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/toaster";
-import { worksans } from "@/styles/fonts";
+import { worksans, outfit, lato, zilla } from "@/styles/fonts";
 import "./globals.css";
 import Footer from "@/components/nav/Footer";
 import Navbar from "@/components/nav/Navbar";
 import { GoogleAnalyticsTracking } from "@/components/functions/GoogleAnalytics";
-import Providers from "./providers";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://chukwudibarrah.com"),
@@ -44,40 +45,6 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  url: "https://chukwudibarrah.com",
-  image:
-    "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
-  about: {
-    "@type": "Person",
-    "@id": "https://chukwudibarrah.com",
-    name: "Chukwudi Barrah",
-    jobTitle: "Web editor, front-end web developer and copywriter",
-    image:
-      "https://raw.githubusercontent.com/chukwudibarrah/ceebee/main/public/chukwudibarrah.webp",
-    description:
-      "Web editor, front-end web developer and copywriter; I enjoy building, creating and problem-solving.",
-    sameAs: [
-      "https://medium.com/@chukwudibarrah",
-      "https://www.linkedin.com/in/cbarrah",
-      "https://github.com/chukwudibarrah",
-      "https://www.instagram.com/dude.with.a.camera/",
-      "https://www.facebook.com/thechukwudibarrah",
-    ],
-    homeLocation: {
-      "@type": "Place",
-      name: "United Kingdom",
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: "53.2913072",
-        longitude: "-1.3309752",
-      },
-    },
-  },
-};
-
 export default function RootLayout({
   children,
 }: {
@@ -89,17 +56,11 @@ export default function RootLayout({
       <GoogleAnalytics gaId="G-141ZFEMEVE" />
       <body className={worksans.className}>
         <GoogleAnalyticsTracking />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <Providers>
           <Navbar />
           {children}
           <Analytics />
           <Toaster />
           <Footer />
-        </Providers>
       </body>
     </html>
   );
