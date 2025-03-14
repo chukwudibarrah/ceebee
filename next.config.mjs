@@ -25,7 +25,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/:path",
+        source: "/:path*",
         headers: [
           {
             key: "X-Frame-Options",
@@ -35,6 +35,10 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: "frame-ancestors 'self' https://app.contentful.com",
           },
+          {
+            key: "X-Robots-Tag",
+            value: "index, follow"
+          }
         ],
       },
     ];
