@@ -57,14 +57,12 @@ export default function Home() {
       className={`min-h-screen w-screen overscroll-none overflow-hidden flex flex-col items-center justify-center`}
     >
       <h1 className="fixed z-0 text-[110px] leading-[90px] md:text-[230px] md:leading-[250px] lg:text-[350px] lg:leading-[270px] opacity-5 text-gray-200 font-extrabold select-none">
-        <span className="block lg:hidden">
-          chuk <br />wudi <br />barrah
+        <span className="tracking-widest">
+          chuk <br />
+          wudi
         </span>
-        <span className="hidden lg:block">
-        chukwudi
         <br />
-        barrah
-        </span>
+        <span>barrah</span>
       </h1>
       <div className="text-[58px] pt-28 md:pt-0 md:text-[130px] lg:text-[250px] font-bold">
         <FlipWords words={words} />
