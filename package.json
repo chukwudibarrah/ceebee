@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.8.0",
-    "@contentful/rich-text-react-renderer": "^15.22.11",
-    "@contentful/rich-text-types": "^16.8.5",
     "@emailjs/browser": "^4.3.3",
     "@next/third-parties": "15.0.2",
     "@radix-ui/react-hover-card": "^1.1.6",
@@ -25,7 +23,6 @@
     "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "contentful": "^10.15.1",
     "date-fns": "^3.6.0",
     "emailjs": "^4.0.3",
     "framer-motion": "^11.18.2",
@@ -42,8 +39,8 @@
     "nodemailer": "^6.10.0",
     "pg": "^8.14.0",
     "qss": "^3.0.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-is": "^19.0.0",
     "react-router-dom": "^6.30.0",
@@ -58,16 +55,12 @@
     "@tailwindcss/postcss": "^4.0.14",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20.17.24",
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "eslint": "^8.57.1",
     "eslint-config-next": "^15.2.1",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.0.14",
     "typescript": "^5.8.2"
-  },
-  "overrides": {
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
   }
 }
