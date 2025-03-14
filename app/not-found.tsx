@@ -39,7 +39,7 @@ export default function NotFound() {
           href="/"
           className="group text-gray-200 transition-all duration-300 ease-in-out"
         >
-          <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+          <span className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
             home page
           </span>
         </Link>
@@ -48,7 +48,7 @@ export default function NotFound() {
           href="/journal"
           className="group text-gray-200 transition-all duration-300 ease-in-out"
         >
-          <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+          <span className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
             journal{" "}
           </span>
         </Link>
@@ -57,7 +57,7 @@ export default function NotFound() {
           href="/projects"
           className="group text-gray-200 transition-all duration-300 ease-in-out"
         >
-          <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+          <span className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
             projects
           </span>
         </Link>

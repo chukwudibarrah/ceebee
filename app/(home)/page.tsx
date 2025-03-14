@@ -80,7 +80,7 @@ export default function Home() {
               className="overflow-hidden text-center mt-20 md:mt-28 group text-gray-200 transition-all duration-300 ease-in-out z-20"
             >
               <span
-                className={`text-gray-200 text-xl md:text-2xl font-thin bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_5px] bg-no-repeat group-hover:bg-[length:0%_5px] transition-all duration-700 ease-out hover:text-sienna`}
+                className={`text-gray-200 text-xl md:text-2xl font-thin bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_5px] bg-no-repeat group-hover:bg-[length:0%_5px] transition-all duration-700 ease-out hover:text-sienna`}
               >
                 Chukwudi Barrah
               </span>

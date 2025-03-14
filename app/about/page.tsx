@@ -79,21 +79,26 @@ export default function About() {
               <span>
                 <LinkPreview
                   url="https://mirrorsmind.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Visit the Mirror's Mind website"
                   className="group text-gray-200 transition-all duration-300 ease-in-out"
                 >
-                  <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                  <span className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                     Mirror&apos;s Mind
                   </span>
                 </LinkPreview>
-              </span>,{" "}
+              </span>
+              ,{" "}
               <span>
                 <LinkPreview
                   url="https://melanintravelsmagic.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Visit the Melanin Travels Magic website"
                   className="group text-gray-200 transition-all duration-300 ease-in-out"
                 >
-                  <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                  <span className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                     Melanin Travels Magic{" "}
                   </span>
                 </LinkPreview>
@@ -102,10 +107,12 @@ export default function About() {
               <span>
                 <LinkPreview
                   url="https://www.blackgourd.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Visit the Black Gourd Creative Collective website"
                   className="group text-gray-200 transition-all duration-300 ease-in-out"
                 >
-                  <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                  <span className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                     Black Gourd
                   </span>
                 </LinkPreview>
@@ -121,10 +128,12 @@ export default function About() {
               <span>
                 <LinkPreview
                   url="https://open.spotify.com/show/57HkbwEhFc9Dbi2qXZpbk9?si=e32057ed7a3b4065"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Go to Other Expats podcast on Spotify"
                   className="group text-gray-200 transition-all duration-300 ease-in-out"
                 >
-                  <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                  <span className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                     Other Expats{" "}
                   </span>
                 </LinkPreview>
@@ -133,10 +142,12 @@ export default function About() {
               <span>
                 <LinkPreview
                   url="https://open.spotify.com/show/4jliloBWNDps9Acme4TPn3?si=bae0278a032a4a14"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Go to blackside podcast on Spotify"
                   className="group text-gray-200 transition-all duration-300 ease-in-out"
                 >
-                  <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                  <span className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                     blackside UK
                   </span>
                 </LinkPreview>
@@ -152,10 +163,12 @@ export default function About() {
               <span>
                 <LinkPreview
                   url="https://blackside.uk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Go to blackside UK podcast on Spotify"
                   className="group text-gray-200 transition-all duration-300 ease-in-out"
                 >
-                  <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                  <span className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                     blackside UK{" "}
                   </span>
                 </LinkPreview>
@@ -164,10 +177,12 @@ export default function About() {
               <span>
                 <LinkPreview
                   url="https://otherexpats.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Go to Other Expats podcast on Spotify"
                   className="group text-gray-200 transition-all duration-300 ease-in-out"
                 >
-                  <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                  <span className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                     Other Expats
                   </span>
                 </LinkPreview>
@@ -197,7 +212,7 @@ export default function About() {
                 rel="noopener"
                 className="group text-gray-200 transition-all duration-300 ease-in-out"
               >
-                <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                <span className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                   journal
                 </span>
               </Link>
@@ -210,7 +225,7 @@ export default function About() {
                 rel="noopener"
                 className="group text-gray-200 transition-all duration-300 ease-in-out"
               >
-                <span className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
+                <span className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna">
                   projects
                 </span>
               </Link>
@@ -306,7 +321,7 @@ export default function About() {
                   aria-label="Send an email to hello@chukwudibarrah.com"
                   target="_blank"
                   rel="noopener"
-                  className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna"
+                  className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna"
                 >
                   hello@chukwudibarrah.com
                 </Link>
