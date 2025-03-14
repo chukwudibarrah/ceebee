@@ -16,6 +16,8 @@ type LinkPreviewProps = {
   children: React.ReactNode;
   url: string;
   className?: string;
+  target: string;
+  rel: string;
   width?: number;
   height?: number;
   quality?: number;
@@ -28,6 +30,8 @@ type LinkPreviewProps = {
 export const LinkPreview = ({
   children,
   url,
+  target,
+  rel,
   className,
   width = 200,
   height = 125,
@@ -133,9 +137,9 @@ export const LinkPreview = ({
               >
                 <Link
                   href={url}
-                  target="_blank"
-                  rel="noopener"
-                  className="block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-neutral-200 dark:hover:border-neutral-800"
+                  target={target}
+                  rel={rel}
+                  className="block p-1 bg-white border-2 border-transparent shadow-sm rounded-xl hover:border-neutral-200 dark:hover:border-neutral-800"
                   style={{ fontSize: 0 }}
                 >
                   <Image

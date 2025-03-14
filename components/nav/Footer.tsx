@@ -43,7 +43,7 @@ export default function Footer() {
           </span>
           <span className="group text-gray-200 transition-all duration-300 ease-in-out">
             <span
-              className={`bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_8px] bg-no-repeat group-hover:bg-[length:0%_8px] transition-all duration-700 ease-out z-40 hover:text-sienna md:text-6xl text-5xl uppercase font-extrabold hover:cursor-pointer`}
+              className={`bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_8px] bg-no-repeat group-hover:bg-[length:0%_8px] transition-all duration-700 ease-out z-40 hover:text-sienna md:text-6xl text-5xl uppercase font-extrabold hover:cursor-pointer`}
               onClick={openModal}
             >
               this contact form.
@@ -82,6 +82,8 @@ export default function Footer() {
           </h3>
           <a
             href="mailto:hello@chukwudibarrah.com"
+            target="_blank"
+            rel="noopener noreferrer"
             id="animate"
             className="font-thin text-xl select-none hover:text-sienna"
           >
@@ -95,6 +97,8 @@ export default function Footer() {
           <Link
             href="https://github.com/chukwudibarrah/ceebee"
             aria-label="See the source code for this site on Github"
+            target="_blank"
+            rel="noopener noreferrer"
             id="animate"
             className="z-40 hover:text-sienna leading-loose my-4"
           >
@@ -105,6 +109,8 @@ export default function Footer() {
           <Link
             href="https://github.com/chukwudibarrah"
             aria-label="Visit my Github profile"
+            target="_blank"
+            rel="noopener noreferrer"
             id="animate"
             className="z-40 hover:text-sienna my-4 md:mx-20"
           >

@@ -113,7 +113,7 @@ export default function FetchProjects() {
               href={project.url} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna leading-loose" 
+              className="bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-700 ease-out hover:text-sienna leading-loose" 
               >
                 {project.title}
               </Link>
@@ -127,7 +127,7 @@ export default function FetchProjects() {
           type="button" 
           aria-label="Load more projects"
           onClick={loadMoreProjects} 
-          className="text-xl md:text-2xl text-gray-200 bg-left-bottom bg-gradient-to-r from-sienna to-sienna bg-[length:100%_8px] bg-no-repeat group-hover:bg-[length:0%_8px] transition-all duration-700 ease-out hover:text-sienna">
+          className="text-xl md:text-2xl text-gray-200 bg-left-bottom bg-linear-to-r from-sienna to-sienna bg-[length:100%_8px] bg-no-repeat group-hover:bg-[length:0%_8px] transition-all duration-700 ease-out hover:text-sienna">
             Show me more...
           </button>
         </div>
