@@ -223,7 +223,7 @@ export default function EnhancedComments({ journalId }: { journalId: string }) {
       </div>
 
       {/* Comment form */}
-      <div className="mb-10 border border-neutral-800 rounded-lg p-4">
+      <div className="mb-10 border border-neutral-800 rounded-[5px] p-4">
         <h4 className="text-xl font-semibold text-gray-200 mb-4">
           Leave a comment
         </h4>
@@ -240,7 +240,7 @@ export default function EnhancedComments({ journalId }: { journalId: string }) {
                 id="comment"
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
-                className="w-full p-3 bg-neutral-900 border border-neutral-700 rounded-md text-gray-200 focus:ring-2 focus:ring-sienna focus:border-transparent resize-none min-h-32"
+                className="w-full p-3 bg-neutral-900 border border-neutral-700 rounded-[5px] text-gray-200 focus:ring-2 focus:ring-sienna focus:border-transparent resize-none min-h-32"
                 placeholder="Share your thoughts..."
                 required
               />
@@ -249,9 +249,9 @@ export default function EnhancedComments({ journalId }: { journalId: string }) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-6 py-2 bg-sienna text-black rounded-[6px] hover:bg-opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-2 bg-sienna text-gray-200 rounded-[5px] hover:bg-opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? "Submitting..." : "Comment"}
+                {isSubmitting ? "Submitting..." : "Add comment"}
               </button>
             </div>
             <p className="text-sm text-gray-400">
@@ -260,7 +260,7 @@ export default function EnhancedComments({ journalId }: { journalId: string }) {
             </p>
           </form>
         ) : (
-          <div className="text-center p-6 border border-dashed border-neutral-700 rounded-lg">
+          <div className="text-center p-6 border border-dashed border-neutral-700 rounded-[5px]">
             <p className="text-gray-300 mb-4">
               Sign in to join the conversation
             </p>
@@ -270,7 +270,7 @@ export default function EnhancedComments({ journalId }: { journalId: string }) {
                   setAuthMode("signin");
                   setShowAuthModal(true);
                 }}
-                className="px-6 py-2 bg-sienna text-white rounded-md hover:bg-opacity-90 transition-colors"
+                className="px-6 py-2 bg-sienna text-white rounded-[5px] hover:bg-opacity-90 transition-colors"
               >
                 Sign In
               </button>
@@ -279,9 +279,9 @@ export default function EnhancedComments({ journalId }: { journalId: string }) {
                   setAuthMode("signup");
                   setShowAuthModal(true);
                 }}
-                className="px-6 py-2 bg-neutral-800 text-gray-200 rounded-md hover:bg-neutral-700 transition-colors"
+                className="px-6 py-2 bg-neutral-800 text-gray-200 rounded-[5px] hover:bg-neutral-700 transition-colors"
               >
-                Create Account
+                Create account
               </button>
             </div>
           </div>
@@ -292,16 +292,16 @@ export default function EnhancedComments({ journalId }: { journalId: string }) {
       {loading ? (
         <div className="text-gray-400 mt-4">Loading comments...</div>
       ) : comments.length === 0 ? (
-        <div className="text-gray-400 mt-4 p-6 border border-dashed border-neutral-700 rounded-lg text-center">
+        <div className="text-gray-400 mt-4 p-6 border border-dashed border-neutral-700 rounded-[5px] text-center">
           <MessageSquare className="w-8 h-8 mx-auto mb-2 opacity-50" />
           <p>No comments yet. Be the first to comment!</p>
         </div>
       ) : (
-        <div className="space-y-6">
+        <div className="space-y-6 ">
           {comments.map((comment) => (
             <div
               key={comment._id}
-              className="p-4 border border-neutral-800 rounded-lg bg-neutral-900/50"
+              className="p-4 border border-neutral-800 rounded-[5px] bg-neutral-900/50"
             >
               <div className="flex items-center justify-between mb-2">
                 <h4 className="font-semibold text-sienna">{comment.name}</h4>

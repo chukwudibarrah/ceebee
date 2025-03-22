@@ -76,11 +76,11 @@ export default function CommentForm({ journalId }: { journalId: string }) {
       <h3 className="text-2xl font-bold text-gray-200 mb-6">Leave a comment</h3>
       
       {!session ? (
-        <div className="text-center p-6 border border-dashed border-neutral-700 rounded-lg">
+        <div className="text-center p-6 border border-dashed border-neutral-700 rounded-[5px]">
           <p className="text-gray-300 mb-4">Sign in to leave a comment</p>
           <button
             onClick={() => signIn()}
-            className="px-6 py-2 bg-sienna text-white rounded-md hover:bg-opacity-90 transition-colors"
+            className="px-6 py-2 bg-sienna text-white rounded-[5px] hover:bg-opacity-90 transition-colors"
           >
             Sign In
           </button>
@@ -95,7 +95,7 @@ export default function CommentForm({ journalId }: { journalId: string }) {
               id="comment"
               value={comment}
               onChange={(e) => setComment(e.target.value)}
-              className="w-full p-3 bg-neutral-900 border border-neutral-700 rounded-md text-gray-200 focus:ring-2 focus:ring-sienna focus:border-transparent resize-none min-h-32"
+              className="w-full p-3 bg-neutral-900 border border-neutral-700 rounded-[5px] text-gray-200 focus:ring-2 focus:ring-sienna focus:border-transparent resize-none min-h-32"
               placeholder="Write your comment here..."
               required
             />
@@ -104,7 +104,7 @@ export default function CommentForm({ journalId }: { journalId: string }) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-6 py-2 bg-sienna text-white rounded-md hover:bg-opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-6 py-2 bg-sienna text-white rounded-[5px] hover:bg-opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? 'Submitting...' : 'Comment'}
             </button>
