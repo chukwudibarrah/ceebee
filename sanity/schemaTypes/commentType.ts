@@ -22,6 +22,12 @@ export const commentType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "userId",
+      title: "User ID",
+      type: "string", 
+      description: "ID of the authenticated user who created the comment",
+    }),
+    defineField({
       name: "createdAt",
       title: "Created At",
       type: "datetime",
@@ -33,12 +39,13 @@ export const commentType = defineType({
       initialValue: new Date().toISOString(),
       validation: (Rule) => Rule.required(),
     }),
-    {
+    defineField({
       name: "text",
       title: "Comment text",
       type: "text",
       rows: 3,
-    },
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: "approved",
       title: "Approved",
@@ -54,20 +61,51 @@ export const commentType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "userId",
-      title: "User ID",
-      type: "string",
-      description: "ID of the authenticated user who created the comment",
+      name: "likes",
+      title: "Likes",
+      type: "number",
+      initialValue: 0,
+    }),
+    defineField({
+      name: "likedBy",
+      title: "Liked By",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "user" }] }],
+    }),
+    defineField({
+      name: "reported",
+      title: "Reported",
+      type: "boolean",
+      description: "Whether this comment has been reported",
+      initialValue: false,
+    }),
+    defineField({
+      name: "reportCount",
+      title: "Report Count",
+      type: "number",
+      initialValue: 0,
+    }),
+    defineField({
+      name: "parentComment",
+      title: "Parent Comment",
+      type: "reference",
+      to: { type: "comment" },
+      description: "If this is a reply to another comment",
     }),
   ],
   preview: {
     select: {
       name: "name",
+      comment: "text",
       date: "createdAt",
+      approved: "approved",
     },
-    prepare(selection) {
-      const { name } = selection;
-      return { ...selection, subtitle: name && `by ${name}` };
+    prepare({ name, comment, date, approved }) {
+      const previewComment = comment?.length > 50 ? `${comment.substring(0, 50)}...` : comment;
+      return {
+        title: previewComment,
+        subtitle: `By ${name} ${date ? `on ${date}` : ''} ${approved ? '(Approved)' : '(Pending)'}`,
+      };
     },
   },
 });

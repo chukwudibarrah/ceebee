@@ -9,7 +9,7 @@ import Image from "next/image";
 import LoadingAnimation from "@/components/functions/LoadingAnimation";
 import Link from "next/link";
 import { urlFor } from "@/lib/client";
-import Comments from "./Comments";
+import Comments from "./EnhancedComments";
 import CommentForm from "./CommentForm";
 import { useSession } from "next-auth/react";
 import { ptComponents } from "./PortableTextComponents";

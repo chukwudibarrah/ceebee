@@ -10,6 +10,7 @@ import "./globals.css";
 import Footer from "@/components/nav/Footer";
 import Navbar from "@/components/nav/Navbar";
 import { GoogleAnalyticsTracking } from "@/components/functions/GoogleAnalytics";
+import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://chukwudibarrah.com"),
@@ -56,11 +57,13 @@ export default function RootLayout({
       <GoogleAnalytics gaId="G-141ZFEMEVE" />
       <body className={worksans.className}>
         <GoogleAnalyticsTracking />
+        <AuthProvider>
           <Navbar />
           {children}
           <Analytics />
           <Toaster />
           <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

@@ -9,6 +9,8 @@ import { ptComponents } from "@/components/content/PortableTextComponents";
 import { urlFor } from "@/lib/client";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { AuthProvider } from "@/context/AuthContext";
+import EnhancedComments from "@/components/content/EnhancedComments";
 
 // ******************
 // Journal metadata
@@ -120,81 +122,86 @@ export default async function JournalPost({
     };
 
     return (
-      <article className="min-w-screen overflow-hidden">
-        <div className="lg:px-28 md:px-16 px-4 my-10">
-          <div className="text-persian text-sm uppercase tracking-wider mb-2">
-            {article.category}
+      <AuthProvider>
+        <article className="min-w-screen overflow-hidden">
+          <div className="lg:px-28 md:px-16 px-4 my-10">
+            <div className="text-persian text-sm uppercase tracking-wider mb-2">
+              {article.category}
+            </div>
+            <h1 className="text-5xl md:text-8xl font-bold text-gray-200">
+              {article.title}
+            </h1>
+            <p className="my-4 text-gray-200">
+              {formatDate(article.publishedAt)}
+            </p>
           </div>
-          <h1 className="text-5xl md:text-8xl font-bold text-gray-200">
-            {article.title}
-          </h1>
-          <p className="my-4 text-gray-200">
-            {formatDate(article.publishedAt)}
-          </p>
-        </div>
 
-        {article.image && (
-          <div className="mt-10 w-full">
-            <img
-              src={urlFor(article.image).url()}
-              alt={article.title}
-              className="w-full h-auto rounded-md"
-            />
-          </div>
-        )}
-
-        <div className="grid lg:grid-cols-3 lg:gap-16 lg:px-28 md:px-16 px-4 my-16">
-          <div className="lg:col-span-2 font-thin">
-            <PortableText value={article.content} components={ptComponents} />
-            <hr className="my-16 border-neutral-800 block lg:hidden" />
-          </div>
-          
-
-          {/* Random Articles Section */}
-          {randomPosts.length > 0 && (
-            <div>
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-outfit lg:mt-6 mb-12">
-                You&apos;ll also want to see these
-              </h3>
-              <div className="grid gap-10 grid-cols-1">
-                {randomPosts.map((post) => (
-                  <div key={post._id} className="">
-                    <Link
-                      href={`/journals/${post.slug.current}`}
-                      aria-label="Open related article"
-                      className="block group"
-                    >
-                      {post.image && (
-                        <div className="w-full overflow-hidden rounded-md">
-                          <img
-                            src={urlFor(post.image).url()}
-                            alt={post.title}
-                            className="w-full h-auto transform transition-transform duration-500 group-hover:scale-105"
-                          />
-                        </div>
-                      )}
-                      <div className="text-persian text-sm uppercase tracking-wider mt-4">
-                        {post.category}
-                      </div>
-                      <h4 className="text-xl font-bold text-gray-200 pt-2 group-hover:text-sienna transition-colors line-clamp-2">
-                        {post.title}
-                      </h4>
-                      {post.description && (
-                        <p className="text-gray-300 pt-3 pb-10 line-clamp-2">
-                          {post.description}
-                        </p>
-                      )}
-                    </Link>
-                  </div>
-                ))}
-              </div>
+          {article.image && (
+            <div className="mt-10 w-full">
+              <img
+                src={urlFor(article.image).url()}
+                alt={article.title}
+                className="w-full h-auto rounded-md"
+              />
             </div>
           )}
-        </div>
-        <div className="lg:px-28 md:px-16 px-4 my-16 hidden lg:block">
-        <hr className="border-neutral-800" />
-        </div>
-      </article>
+
+          <div className="grid lg:grid-cols-3 lg:gap-16 lg:px-28 md:px-16 px-4 my-16">
+            <div className="lg:col-span-2 font-thin">
+              <PortableText value={article.content} components={ptComponents} />
+
+              {/* Enhanced Comments Section */}
+              <EnhancedComments journalId={article._id} />
+
+              <hr className="my-16 border-neutral-800 block lg:hidden" />
+            </div>
+
+            {/* Random Articles Section */}
+            {randomPosts.length > 0 && (
+              <div>
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-outfit lg:mt-6 mb-12">
+                  You&apos;ll also want to see these
+                </h3>
+                <div className="grid gap-10 grid-cols-1">
+                  {randomPosts.map((post) => (
+                    <div key={post._id} className="">
+                      <Link
+                        href={`/journals/${post.slug.current}`}
+                        aria-label="Open related article"
+                        className="block group"
+                      >
+                        {post.image && (
+                          <div className="w-full overflow-hidden rounded-md">
+                            <img
+                              src={urlFor(post.image).url()}
+                              alt={post.title}
+                              className="w-full h-auto transform transition-transform duration-500 group-hover:scale-105"
+                            />
+                          </div>
+                        )}
+                        <div className="text-persian text-sm uppercase tracking-wider mt-4">
+                          {post.category}
+                        </div>
+                        <h4 className="text-xl font-bold text-gray-200 pt-2 group-hover:text-sienna transition-colors line-clamp-2">
+                          {post.title}
+                        </h4>
+                        {post.description && (
+                          <p className="text-gray-300 pt-3 pb-10 line-clamp-2">
+                            {post.description}
+                          </p>
+                        )}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="lg:px-28 md:px-16 px-4 my-16 hidden lg:block">
+            <hr className="border-neutral-800" />
+          </div>
+        </article>
+      </AuthProvider>
     );
   } catch (error) {
     console.error("Error fetching article:", error);
