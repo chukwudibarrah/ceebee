@@ -106,7 +106,7 @@ export default function CommentForm({ journalId }: { journalId: string }) {
               disabled={isSubmitting}
               className="px-6 py-2 bg-sienna text-white rounded-md hover:bg-opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Submitting...' : 'Submit Comment'}
+              {isSubmitting ? 'Submitting...' : 'Comment'}
             </button>
           </div>
           <p className="text-sm text-gray-400">
