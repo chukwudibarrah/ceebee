@@ -54,7 +54,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'signin' }: A
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
         transition={{ duration: 0.2 }}
-        className="relative w-full max-w-md p-6 bg-neutral-950 border border-neutral-800 rounded-lg shadow-xl"
+        className="relative w-full max-w-md p-6 bg-neutral-950 border border-neutral-800 rounded-xl shadow-xl"
       >
         <button 
           onClick={onClose}
@@ -65,7 +65,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'signin' }: A
         </button>
         
         <h2 className="text-3xl font-bold text-gray-200 mb-6">
-          {mode === 'signin' ? 'Sign In' : 'Create Account'}
+          {mode === 'signin' ? 'Sign in' : 'Sign up'}
         </h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -80,7 +80,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'signin' }: A
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className="w-full px-3 py-2 bg-neutral-900 border border-neutral-800 rounded-md text-gray-200 focus:outline-none focus:ring-2 focus:ring-sienna"
+                className="w-full px-3 py-2 bg-neutral-900 border border-neutral-800 rounded-[5px] text-gray-200 focus:outline-none focus:ring-2 focus:ring-sienna"
                 placeholder="Your name"
               />
             </div>
@@ -88,7 +88,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'signin' }: A
           
           <div className="space-y-2">
             <label htmlFor="email" className="block text-sm font-medium text-gray-300">
-              Email Address
+              Email
             </label>
             <input
               id="email"
@@ -96,7 +96,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'signin' }: A
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-3 py-2 bg-neutral-900 border border-neutral-800 rounded-md text-gray-200 focus:outline-none focus:ring-2 focus:ring-sienna"
+              className="w-full px-3 py-2 bg-neutral-900 border border-neutral-800 rounded-[5px] text-gray-200 focus:outline-none focus:ring-2 focus:ring-sienna"
               placeholder="your.email@example.com"
             />
           </div>
@@ -111,7 +111,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'signin' }: A
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-3 py-2 bg-neutral-900 border border-neutral-800 rounded-md text-gray-200 focus:outline-none focus:ring-2 focus:ring-sienna"
+              className="w-full px-3 py-2 bg-neutral-900 border border-neutral-800 rounded-[5px] text-gray-200 focus:outline-none focus:ring-2 focus:ring-sienna"
               placeholder="••••••••"
             />
           </div>
@@ -120,18 +120,18 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'signin' }: A
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full px-4 py-2 mt-2 text-white bg-sienna rounded-md hover:bg-opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-5 py-2 mt-2 text-white bg-sienna rounded-[5px] hover:bg-opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting 
                 ? 'Processing...' 
-                : mode === 'signin' ? 'Sign In' : 'Create Account'}
+                : mode === 'signin' ? 'Sign in' : 'Sign up'}
             </button>
           </div>
         </form>
         
-        <div className="mt-4 text-center">
+        <div className="mt-7">
           <p className="text-sm text-gray-400">
-            {mode === 'signin' ? "Don't have an account?" : "Already have an account?"}
+            {mode === 'signin' ? "Your first time here?" : "Been here before?"}
             <button
               type="button"
               onClick={toggleMode}
@@ -143,9 +143,9 @@ export default function AuthModal({ isOpen, onClose, initialMode = 'signin' }: A
         </div>
         
         <div className="pt-4 mt-4 border-t border-neutral-800">
-          <p className="text-xs text-gray-400 text-center">
+          <p className="text-xs text-gray-400">
             {mode === 'signup' 
-              ? 'By creating an account, you agree to our Terms of Service and Privacy Policy.'
+              ? 'By creating an account, you agree to the Terms of Service and Privacy Policy.'
               : 'Your comments will be displayed with your name. Be nice!'}
           </p>
         </div>

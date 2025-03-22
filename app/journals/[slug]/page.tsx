@@ -3,7 +3,6 @@
 
 import { getArticle, getRandomArticles } from "@/lib/api";
 import { PortableText } from "@portabletext/react";
-import Image from "next/image";
 import Link from "next/link";
 import { ptComponents } from "@/components/content/PortableTextComponents";
 import { urlFor } from "@/lib/client";
@@ -11,6 +10,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { AuthProvider } from "@/context/AuthContext";
 import EnhancedComments from "@/components/content/EnhancedComments";
+import JournalImageWithOverlay from "@/components/content/JournalImageWithOverlay";
 
 // ******************
 // Journal metadata
@@ -121,28 +121,27 @@ export default async function JournalPost({
       return new Date(dateString).toLocaleDateString("en-UK", options);
     };
 
+    const formattedDate = formatDate(article.publishedAt);
+
     return (
       <AuthProvider>
         <article className="min-w-screen overflow-hidden">
-          <div className="lg:px-28 md:px-16 px-4 my-10">
-            <div className="text-persian text-sm uppercase tracking-wider mb-2">
-              {article.category}
-            </div>
-            <h1 className="text-5xl md:text-8xl font-bold text-gray-200">
-              {article.title}
-            </h1>
-            <p className="my-4 text-gray-200">
-              {formatDate(article.publishedAt)}
-            </p>
-          </div>
-
-          {article.image && (
-            <div className="mt-10 w-full">
-              <img
-                src={urlFor(article.image).url()}
-                alt={article.title}
-                className="w-full h-auto rounded-md"
-              />
+          {article.image ? (
+            <JournalImageWithOverlay
+              image={article.image}
+              category={article.category}
+              title={article.title}
+              date={formattedDate}
+            />
+          ) : (
+            <div className="lg:px-28 md:px-16 px-4 my-20">
+              <div className="text-persian text-sm uppercase tracking-wider mb-2">
+                {article.category}
+              </div>
+              <h1 className="text-5xl md:text-8xl font-bold text-gray-200">
+                {article.title}
+              </h1>
+              <p className="my-4 text-gray-200">{formattedDate}</p>
             </div>
           )}
 
@@ -171,11 +170,11 @@ export default async function JournalPost({
                         className="block group"
                       >
                         {post.image && (
-                          <div className="w-full overflow-hidden rounded-md">
+                          <div className="w-full overflow-hidden rounded-[5px]">
                             <img
                               src={urlFor(post.image).url()}
                               alt={post.title}
-                              className="w-full h-auto transform transition-transform duration-500 group-hover:scale-105"
+                              className="w-full h-auto transform rounded-[5px] transition-transform duration-500 group-hover:scale-105"
                             />
                           </div>
                         )}
@@ -196,9 +195,6 @@ export default async function JournalPost({
                 </div>
               </div>
             )}
-          </div>
-          <div className="lg:px-28 md:px-16 px-4 my-16 hidden lg:block">
-            <hr className="border-neutral-800" />
           </div>
         </article>
       </AuthProvider>
