@@ -52,30 +52,28 @@ const nextConfig = {
 
     return config;
   },
-  experimental: {
-    turbo: {
-      // Configure Turbopack options here
-      rules: {
-        "*.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
+  turbopack: {
+    // Configure Turbopack options here
+    rules: {
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
       },
-      resolveAlias: {
-        underscore: "lodash",
-        mocha: { browser: "mocha/browser-entry.js" },
-      },
-      resolveExtensions: [
-        ".mdx",
-        ".tsx",
-        ".ts",
-        ".jsx",
-        ".js",
-        ".mjs",
-        ".json",
-      ],
-      moduleIdStrategy: "deterministic",
     },
+    resolveAlias: {
+      underscore: "lodash",
+      mocha: { browser: "mocha/browser-entry.js" },
+    },
+    resolveExtensions: [
+      ".mdx",
+      ".tsx",
+      ".ts",
+      ".jsx",
+      ".js",
+      ".mjs",
+      ".json",
+    ],
+    // Removed moduleIdStrategy as it's not a recognized property
   },
 };
 
